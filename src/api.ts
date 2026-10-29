@@ -70,9 +70,15 @@ export async function call<T>(path: string, init: RequestInit = {}): Promise<T> 
   }
 
   const res = await fetch(`/api/v1${path}`, { ...init, headers });
-  const json = await res.json().catch(() => null);
+  const rawText = await res.text();
+  let json: any = null;
+  try {
+    json = JSON.parse(rawText);
+  } catch {
+    throw new Error(`Server returned non-JSON response (${res.status}): ${rawText.slice(0, 120)}`);
+  }
   if (!json?.success) {
-    throw new Error(json?.error?.message ?? `Request failed (${res.status})`);
+    throw new Error(json?.error?.message ?? `Request failed (${res.status}): ${json?.error?.code || "UNKNOWN_ERROR"}`);
   }
   return json.data as T;
 }

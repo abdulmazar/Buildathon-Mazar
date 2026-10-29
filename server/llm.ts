@@ -10,6 +10,18 @@ export type LlmConfig = { provider: Provider; key: string; model: string };
 
 export const DEFAULT_MODELS = { gemini: "gemini-3.5-flash-lite", openrouter: "google/gemini-3.5-flash-lite", anthropic: "claude-sonnet-5-5" } as const;
 
+export const SYSTEM_PROMPT = `You are an expert university curriculum engineering agent for SpecForge.
+
+SUMMARY REWRITE MANDATE:
+You MUST rewrite the course summary entirely. The new summary must explicitly mention the overarching themes of every single unit provided in the syllabus.
+
+CO-PO MAPPING CONSTRAINTS:
+- CRITICAL RULE 1: A Course Outcome CANNOT map to a PO with a strength higher than its Bloom's Taxonomy level supports. (e.g., An L2 'Explain' CO cannot have a strength of 3 for PO-3 'Design').
+- CRITICAL RULE 2: PO-5 (Tool Usage) MUST remain blank UNLESS there is explicit evidence of lab work, programming, or tool use in the syllabus/assessment.
+- CRITICAL RULE 3: PO-6 through PO-10 MUST remain blank UNLESS there is explicit evidence in the syllabus. Do not assume.
+- CRITICAL RULE 4: Every single mapped cell (1, 2, or 3) MUST have a specific, one-line justification.
+`;
+
 export function configFromRequest(req: Request): LlmConfig {
   const provider = String(req.header("x-llm-provider") ?? "").toLowerCase();
   const key = String(req.header("x-llm-key") ?? "").trim();
@@ -76,10 +88,12 @@ async function callProvider(prompt: string, cfg: LlmConfig): Promise<string> {
 }
 
 export async function generateJson<T>(prompt: string, schema: ZodType<T, any, any>, cfg: LlmConfig): Promise<T> {
+  const isCheck = prompt.includes('"pong"');
+  const basePrompt = isCheck ? prompt : `${SYSTEM_PROMPT}\n\n${prompt}`;
   let last = "";
   for (let attempt = 0; attempt < 2; attempt++) {
     const suffix = attempt === 0 ? "" : `\n\nYour previous answer was invalid: ${last}. Reply with valid JSON only.`;
-    const raw = await callProvider(prompt + "\n\nReply with JSON only, no commentary." + suffix, cfg);
+    const raw = await callProvider(basePrompt + "\n\nReply with JSON only, no commentary." + suffix, cfg);
     try {
       const parsed = schema.safeParse(JSON.parse(stripFences(raw)));
       if (parsed.success) return parsed.data;

@@ -513,8 +513,7 @@ SOURCE OF TRUTH RULES:
       : "No blueprint supplied. Extract Course Outcomes and units from the existing specification draft."
   }
 2. Course summary:
-   - Synthesize a comprehensive course overview that explicitly references the core themes of EVERY syllabus unit (Unit 1 through Unit N).
-   - Ensure the summary accurately reflects the full breadth of the syllabus units.
+   You MUST rewrite the course summary entirely. The new summary must explicitly mention the overarching themes of every single unit provided in the syllabus.
 3. Standardize credits_ltp strictly as "L:T:P" format (e.g. "3:0:1").
 4. Course Outcomes:
    - id: "CO-1", "CO-2", etc.
@@ -530,16 +529,15 @@ SOURCE OF TRUTH RULES:
    - Every CO in Section 3 must have a row in co_po_pso_map.
    - Columns are strictly PO-1 through PO-11 and PSO-1, PSO-2. Do NOT include any PSO-3.
    - Cell levels: 1 (moderate), 2 (strong), 3 (very strong). Omit blank cells.
-   - BLOOM CEILING: A mapping strength CANNOT exceed the CO's Bloom's level. (L1 max level 1, L2 max level 2, L3+ max level 3).
-   - PO-5 REQUIRES real tool use (lab, programming, IDE, code, software implementation). Conceptual COs must have PO-5 blank.
-   - PO-6 to PO-11 require explicit evidence in the syllabus or assessment; without explicit evidence, leave them blank.
-   - Each non-empty cell MUST have a concise one-line justification.
+   - CRITICAL RULE 1: A Course Outcome CANNOT map to a PO with a strength higher than its Bloom's Taxonomy level supports. (e.g., An L2 'Explain' CO cannot have a strength of 3 for PO-3 'Design').
+   - CRITICAL RULE 2: PO-5 (Tool Usage) MUST remain blank UNLESS there is explicit evidence of lab work, programming, or tool use in the syllabus/assessment.
+   - CRITICAL RULE 3: PO-6 through PO-10 MUST remain blank UNLESS there is explicit evidence in the syllabus. Do not assume.
+   - CRITICAL RULE 4: Every single mapped cell (1, 2, or 3) MUST have a specific, one-line justification.
 6. Teaching Hours:
-   - lectures, lab, tests_exams, total.
-   - Reconcile Section 6 rows so lectures + lab + tests_exams equals total.
+   - Extract individual teaching hours rows (lectures, lab, tests_exams) and stated total as written in the specification.
 7. Assessment:
    - components: Continuous Evaluation (CE) and Semester End Examination (SEE) / Lab with weight_percent (summing to 100%).
-   - co_coverage: map each CO-id to array of component names assessing it (e.g. ["Tests", "Written exam"]). Do NOT include undefined COs.
+   - co_coverage: map each CO-id found in the assessment table to array of component names assessing it (include all CO rows in the table, e.g. CO-6 if present).
 
 EXISTING COURSE SPECIFICATION DRAFT:
 """

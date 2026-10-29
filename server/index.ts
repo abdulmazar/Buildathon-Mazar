@@ -8,6 +8,7 @@ import { configFromRequest, generateJson } from "./llm.js";
 import { extractTextFromFile } from "./parsers.js";
 import { ParsedCourseSchema } from "./schema.js";
 import { canEditContent, currentSpec, logTransition, type Role, type WorkflowStatus } from "./store.js";
+import { runGeneratePipeline } from "./generator.js";
 
 const app = express();
 app.use(express.json({ limit: "15mb" }));
@@ -241,8 +242,39 @@ api.post(
     { name: "spec", maxCount: 1 },
     { name: "blueprint", maxCount: 1 },
   ]),
-  (_req, res) => {
-    fail(res, 501, "NOT_BUILT", "POST /api/v1/generate is not built yet (Level 3).");
+  async (req, res, next) => {
+    try {
+      const files = req.files as { [fieldname: string]: Express.Multer.File[] } | undefined;
+      const specFile = files?.spec?.[0];
+      const blueprintFile = files?.blueprint?.[0];
+
+      if (!specFile) {
+        throw new ApiError(400, "MISSING_SPEC", "Course specification file ('spec') is required.");
+      }
+
+      const cfg = configFromRequest(req);
+      const inputId = (req.query.input_id as string) || "SAMPLE";
+
+      const { output, html } = await runGeneratePipeline(
+        specFile.buffer,
+        specFile.originalname,
+        blueprintFile ? blueprintFile.buffer : null,
+        blueprintFile ? blueprintFile.originalname : null,
+        cfg,
+        inputId
+      );
+
+      // Save to outputs folder if exists or create
+      if (!fs.existsSync("outputs")) {
+        fs.mkdirSync("outputs", { recursive: true });
+      }
+      fs.writeFileSync("outputs/specforge_output.json", JSON.stringify(output, null, 2));
+      fs.writeFileSync("outputs/spec.html", html);
+
+      ok(res, { output, html });
+    } catch (e) {
+      next(e);
+    }
   }
 );
 

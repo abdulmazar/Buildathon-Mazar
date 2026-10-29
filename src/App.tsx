@@ -158,20 +158,35 @@ export default function App() {
     if (blueprintFile) formData.append("blueprint", blueprintFile);
 
     try {
-      const result = await call<{ parsed: ParsedCourse; hasBlueprint: boolean; status: string }>(
-        "/parse",
-        {
-          method: "POST",
-          body: formData,
-        }
-      );
+      const result = await call<{
+        parsed: ParsedCourse;
+        hasBlueprint: boolean;
+        status: string;
+        defects?: Defect[];
+        templateChoice?: "integrated" | "non_lab";
+        html?: string;
+      }>("/parse", {
+        method: "POST",
+        body: formData,
+      });
 
       setParsed(result.parsed);
       setHasBlueprint(result.hasBlueprint);
       setStatus(result.status);
+      if (result.templateChoice) {
+        setTemplateChoice(result.templateChoice);
+        setDetectedTemplate(result.templateChoice);
+      }
+      if (result.defects && result.defects.length > 0) {
+        setDefects(result.defects);
+      } else {
+        runDeterministicAudit(result.parsed, result.templateChoice || templateChoice, mapData);
+      }
+      if (result.html) {
+        setSpecHtml(result.html);
+      }
       calculateTemplate(result.parsed);
       initializeMapping(result.parsed);
-      runDeterministicAudit(result.parsed, templateChoice, mapData);
       setActiveStep("spec");
     } catch (err: unknown) {
       setParseError((err as Error).message);
@@ -348,138 +363,125 @@ export default function App() {
     }
   };
 
-  // Generate HTML preview for ExportScreen
+  // Generate real template-injected HTML preview
   useEffect(() => {
     if (!parsed) return;
-    const isWatermarked = status !== "Approved";
-    const title = `${parsed.code} - ${parsed.title}`;
-    const htmlDoc = `<!DOCTYPE html>
-<html>
-<head>
-  <meta charset="utf-8">
-  <title>${title}</title>
-  <style>
-    body { font-family: Calibri, 'Segoe UI', Arial, sans-serif; margin: 24px 32px; color: #111; line-height: 1.45; }
-    h1 { color: #1a3d7c; font-size: 20px; border-bottom: 2px solid #1a3d7c; padding-bottom: 6px; }
-    h2 { color: #1a3d7c; font-size: 15px; margin-top: 20px; }
-    table { width: 100%; border-collapse: collapse; margin: 10px 0; font-size: 12px; }
-    th, td { border: 1px solid #777; padding: 6px 8px; text-align: left; }
-    th { background: #eaedff; color: #00275f; font-weight: 700; }
-    .watermark { position: fixed; top: 35%; left: 10%; transform: rotate(-30deg); font-size: 54px; color: rgba(185,28,28,0.12); font-weight: 900; z-index: 1000; pointer-events: none; border: 4px dashed rgba(185,28,28,0.12); padding: 10px 40px; }
-    .badge { display: inline-block; padding: 2px 6px; border-radius: 4px; font-size: 11px; font-weight: 600; background: #e0f2fe; color: #0369a1; }
-  </style>
-</head>
-<body>
-  ${isWatermarked ? '<div class="watermark">DRAFT — NOT APPROVED</div>' : ''}
-  <h1>Course Specification: ${parsed.title}</h1>
-  <table>
-    <tr><th style="width: 30%">Course Title</th><td>${parsed.title}</td></tr>
-    <tr><th>Course Code</th><td>${parsed.code}</td></tr>
-    <tr><th>Offering Department</th><td>${parsed.department}</td></tr>
-    <tr><th>Credits (L:T:P)</th><td>${parsed.credits_ltp}</td></tr>
-    <tr><th>Course Type</th><td>${parsed.course_type}</td></tr>
-  </table>
+    const timer = setTimeout(() => {
+      call<{ html: string; output: SpecForgeOutput }>("/export/render", {
+        method: "POST",
+        body: JSON.stringify({
+          parsed,
+          templateChoice,
+          mapData,
+          defects,
+          inputId: "SAMPLE",
+        }),
+      })
+        .then((res) => {
+          setSpecHtml(res.html);
+        })
+        .catch((err) => {
+          console.warn("Could not render spec HTML preview:", err);
+        });
+    }, 400);
+    return () => clearTimeout(timer);
+  }, [parsed, status, mapData, templateChoice, defects]);
 
-  <h2>1. Course Summary</h2>
-  <p>${parsed.summary}</p>
-
-  <h2>2. Course Outcomes (COs)</h2>
-  <table>
-    <thead><tr><th>ID</th><th>Outcome Statement</th><th>Bloom Level</th></tr></thead>
-    <tbody>
-      ${parsed.course_outcomes.map((co) => `<tr><td style="font-weight: bold">${co.id}</td><td>${co.statement}</td><td>L${co.bloom_level} (${co.leading_verb})</td></tr>`).join("")}
-    </tbody>
-  </table>
-
-  <h2>3. Syllabus Units</h2>
-  <table>
-    <thead><tr><th>Unit</th><th>Title</th><th>Hours</th><th>Content</th></tr></thead>
-    <tbody>
-      ${parsed.units.map((u) => `<tr><td style="font-weight: bold">${u.number}</td><td>${u.title}</td><td>${u.hours || 0}</td><td>${u.content || ""} ${u.lab ? `<br><em>Lab:</em> ${u.lab}` : ""}</td></tr>`).join("")}
-    </tbody>
-  </table>
-
-  <h2>4. CO-PO-PSO Articulation Matrix</h2>
-  <table>
-    <thead>
-      <tr>
-        <th>CO</th>
-        ${poPsoConfig.pos.map((p) => `<th>${p.id}</th>`).join("")}
-        ${poPsoConfig.psos.map((p) => `<th style="background:#d5e3fc">${p.id}</th>`).join("")}
-      </tr>
-    </thead>
-    <tbody>
-      ${parsed.course_outcomes.map((co) => {
-        const row = mapData[co.id] || {};
-        return `<tr>
-          <td style="font-weight: bold">${co.id}</td>
-          ${poPsoConfig.pos.map((p) => `<td>${row[p.id]?.level || ""}</td>`).join("")}
-          ${poPsoConfig.psos.map((p) => `<td>${row[p.id]?.level || ""}</td>`).join("")}
-        </tr>`;
-      }).join("")}
-    </tbody>
-  </table>
-
-  <h2>5. Teaching Hours & Assessment</h2>
-  <p>Lectures: ${parsed.teaching_hours.lectures}h | Lab: ${parsed.teaching_hours.lab}h | Exams: ${parsed.teaching_hours.tests_exams}h | Total: ${parsed.teaching_hours.total}h</p>
-</body>
-</html>`;
-    setSpecHtml(htmlDoc);
-  }, [parsed, status, mapData, templateChoice]);
-
-  const handleDownloadSpecHtml = () => {
-    if (!specHtml) return;
-    const blob = new Blob([specHtml], { type: "text/html" });
-    const url = URL.createObjectURL(blob);
-    const a = document.createElement("a");
-    a.href = url;
-    a.download = "spec.html";
-    a.click();
-    URL.revokeObjectURL(url);
+  const handleDownloadSpecHtml = async () => {
+    if (!parsed) return;
+    try {
+      const res = await call<{ html: string; output: SpecForgeOutput }>("/export/render", {
+        method: "POST",
+        body: JSON.stringify({
+          parsed,
+          templateChoice,
+          mapData,
+          defects,
+          inputId: "SAMPLE",
+        }),
+      });
+      const blob = new Blob([res.html], { type: "text/html" });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement("a");
+      a.href = url;
+      a.download = "spec.html";
+      a.click();
+      URL.revokeObjectURL(url);
+    } catch {
+      if (specHtml) {
+        const blob = new Blob([specHtml], { type: "text/html" });
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement("a");
+        a.href = url;
+        a.download = "spec.html";
+        a.click();
+        URL.revokeObjectURL(url);
+      }
+    }
   };
 
-  const handleDownloadOutputJson = () => {
+  const handleDownloadOutputJson = async () => {
     if (!parsed) return;
-    const output: SpecForgeOutput = {
-      schema_version: "1.0",
-      input_id: "SAMPLE",
-      template: templateChoice,
-      course: {
-        title: parsed.title,
-        code: parsed.code,
-        department: parsed.department,
-        credits_ltp: parsed.credits_ltp,
-        course_type: parsed.course_type,
-        summary: parsed.summary,
-      },
-      course_outcomes: parsed.course_outcomes.map((co) => ({
-        id: co.id,
-        statement: co.statement,
-        bloom_level: co.bloom_level,
-      })),
-      units: parsed.units.map((u) => ({
-        number: u.number,
-        title: u.title,
-        lab: u.lab || null,
-      })),
-      co_po_pso_map: mapData,
-      teaching_hours: parsed.teaching_hours,
-      assessment: parsed.assessment,
-      defects: defects.map((d) => ({
-        code: d.code,
-        location: d.location,
-        description: d.description,
-        fix: d.fix,
-      })),
-    };
+    try {
+      const res = await call<{ html: string; output: SpecForgeOutput }>("/export/render", {
+        method: "POST",
+        body: JSON.stringify({
+          parsed,
+          templateChoice,
+          mapData,
+          defects,
+          inputId: "SAMPLE",
+        }),
+      });
+      const blob = new Blob([JSON.stringify(res.output, null, 2)], { type: "application/json" });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement("a");
+      a.href = url;
+      a.download = "specforge_output.json";
+      a.click();
+      URL.revokeObjectURL(url);
+    } catch {
+      const output: SpecForgeOutput = {
+        schema_version: "1.0",
+        input_id: "SAMPLE",
+        template: templateChoice,
+        course: {
+          title: parsed.title,
+          code: parsed.code,
+          department: parsed.department,
+          credits_ltp: parsed.credits_ltp,
+          course_type: parsed.course_type,
+          summary: parsed.summary,
+        },
+        course_outcomes: parsed.course_outcomes.map((co) => ({
+          id: co.id,
+          statement: co.statement,
+          bloom_level: co.bloom_level,
+        })),
+        units: parsed.units.map((u) => ({
+          number: u.number,
+          title: u.title,
+          lab: u.lab || null,
+        })),
+        co_po_pso_map: mapData,
+        teaching_hours: parsed.teaching_hours,
+        assessment: parsed.assessment,
+        defects: defects.map((d) => ({
+          code: d.code,
+          location: d.location,
+          description: d.description,
+          fix: d.fix,
+        })),
+      };
 
-    const blob = new Blob([JSON.stringify(output, null, 2)], { type: "application/json" });
-    const url = URL.createObjectURL(blob);
-    const a = document.createElement("a");
-    a.href = url;
-    a.download = "specforge_output.json";
-    a.click();
-    URL.revokeObjectURL(url);
+      const blob = new Blob([JSON.stringify(output, null, 2)], { type: "application/json" });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement("a");
+      a.href = url;
+      a.download = "specforge_output.json";
+      a.click();
+      URL.revokeObjectURL(url);
+    }
   };
 
   const handleDownloadValidationReport = () => {

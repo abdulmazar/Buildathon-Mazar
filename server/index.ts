@@ -8,7 +8,7 @@ import { configFromRequest, generateJson } from "./llm.js";
 import { extractTextFromFile } from "./parsers.js";
 import { ParsedCourseSchema } from "./schema.js";
 import { canEditContent, currentSpec, logTransition, type Role, type WorkflowStatus } from "./store.js";
-import { runGeneratePipeline } from "./generator.js";
+import { detectDefects, injectIntoTemplate, runGeneratePipeline } from "./generator.js";
 
 const app = express();
 app.use(express.json({ limit: "15mb" }));
@@ -174,6 +174,72 @@ ${blueprintText.slice(0, 20000)}
       currentSpec.hasBlueprint = !!blueprintFile;
       currentSpec.updatedAt = new Date().toISOString();
 
+      // Calculate template choice
+      let templateChoice: "integrated" | "non_lab" = "non_lab";
+      const creditMatch = specText.match(/(\d+):(\d+):(\d+)/);
+      if (creditMatch && parseInt(creditMatch[3], 10) > 0) templateChoice = "integrated";
+      if (/laboratory\b/i.test(specText) || /integrated\b/i.test(specText)) templateChoice = "integrated";
+
+      // Detect defects deterministically
+      const defects = detectDefects(specText, blueprintText, {
+        schema_version: "1.0",
+        input_id: "SAMPLE",
+        template: templateChoice,
+        course: {
+          title: parsedData.title,
+          code: parsedData.code,
+          department: parsedData.department,
+          credits_ltp: parsedData.credits_ltp,
+          course_type: parsedData.course_type,
+          summary: parsedData.summary,
+        },
+        course_outcomes: parsedData.course_outcomes.map((c) => ({
+          id: c.id,
+          statement: c.statement,
+          bloom_level: c.bloom_level,
+        })),
+        units: parsedData.units.map((u) => ({
+          number: u.number,
+          title: u.title,
+          lab: u.lab || null,
+        })),
+        co_po_pso_map: {},
+        teaching_hours: parsedData.teaching_hours,
+        assessment: parsedData.assessment,
+      });
+
+      // Construct initial output and HTML
+      const initialOutput = {
+        schema_version: "1.0" as const,
+        input_id: "SAMPLE",
+        template: templateChoice,
+        course: parsedData,
+        course_outcomes: parsedData.course_outcomes.map((c) => ({
+          id: c.id,
+          statement: c.statement,
+          bloom_level: c.bloom_level,
+        })),
+        units: parsedData.units.map((u) => ({
+          number: u.number,
+          title: u.title,
+          lab: u.lab || null,
+        })),
+        co_po_pso_map: {},
+        teaching_hours: parsedData.teaching_hours,
+        assessment: parsedData.assessment,
+        defects,
+      };
+
+      let initialHtml = "";
+      try {
+        initialHtml = injectIntoTemplate(templateChoice, initialOutput);
+        if (!fs.existsSync("outputs")) fs.mkdirSync("outputs", { recursive: true });
+        fs.writeFileSync("outputs/specforge_output.json", JSON.stringify(initialOutput, null, 2));
+        fs.writeFileSync("outputs/spec.html", initialHtml);
+      } catch (err) {
+        console.warn("Could not pre-render template:", err);
+      }
+
       logTransition(
         "Author",
         "Author",
@@ -184,6 +250,9 @@ ${blueprintText.slice(0, 20000)}
 
       ok(res, {
         parsed: parsedData,
+        defects,
+        templateChoice,
+        html: initialHtml,
         hasBlueprint: !!blueprintFile,
         status: currentSpec.status,
       });
@@ -192,6 +261,54 @@ ${blueprintText.slice(0, 20000)}
     }
   }
 );
+
+// POST /api/v1/export/render - Render full HTML template and sync outputs/
+api.post("/export/render", (req, res, next) => {
+  try {
+    const { parsed, templateChoice, mapData, defects, inputId } = req.body;
+    if (!parsed) throw new ApiError(400, "MISSING_DATA", "Parsed course data is required.");
+
+    const tmpl: "integrated" | "non_lab" = templateChoice === "non_lab" ? "non_lab" : "integrated";
+    const fullOutput = {
+      schema_version: "1.0" as const,
+      input_id: inputId || "SAMPLE",
+      template: tmpl,
+      course: {
+        title: parsed.title,
+        code: parsed.code,
+        department: parsed.department,
+        credits_ltp: parsed.credits_ltp,
+        course_type: parsed.course_type,
+        summary: parsed.summary,
+      },
+      course_outcomes: parsed.course_outcomes.map((co: any) => ({
+        id: co.id,
+        statement: co.statement,
+        bloom_level: co.bloom_level,
+      })),
+      units: parsed.units.map((u: any) => ({
+        number: u.number,
+        title: u.title,
+        lab: u.lab || null,
+      })),
+      co_po_pso_map: mapData || {},
+      teaching_hours: parsed.teaching_hours,
+      assessment: parsed.assessment,
+      defects: defects || [],
+    };
+
+    const html = injectIntoTemplate(tmpl, fullOutput);
+
+    // Save to outputs/
+    if (!fs.existsSync("outputs")) fs.mkdirSync("outputs", { recursive: true });
+    fs.writeFileSync("outputs/specforge_output.json", JSON.stringify(fullOutput, null, 2));
+    fs.writeFileSync("outputs/spec.html", html);
+
+    ok(res, { output: fullOutput, html });
+  } catch (e) {
+    next(e);
+  }
+});
 
 // Workflow state transition
 api.post("/workflow/transition", (req, res, next) => {

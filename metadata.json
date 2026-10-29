@@ -1,0 +1,8 @@
+{
+  "name": "SpecForge",
+  "description": "SpecForge course specification refinement, outcome mapping, and defect resolution workbench",
+  "permissions": [],
+  "capabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}

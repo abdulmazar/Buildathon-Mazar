@@ -1,3 +1,5 @@
+import fs from "node:fs";
+import path from "node:path";
 import express, { type NextFunction, type Request, type Response } from "express";
 import multer from "multer";
 import { z } from "zod";
@@ -35,11 +37,44 @@ api.post("/generate", upload.fields([{ name: "spec", maxCount: 1 }, { name: "blu
 
 app.use("/api/v1", api);
 app.use("/api", (_req, res) => fail(res, 404, "NOT_FOUND", "No such route"));
+
+// Mount Vite middleware for dev or static dist for prod
+const isDev = process.env.NODE_ENV !== "production";
+if (isDev) {
+  const { createServer: createViteServer } = await import("vite");
+  const vite = await createViteServer({
+    server: { middlewareMode: true, host: "0.0.0.0" },
+    appType: "spa",
+  });
+  app.use(vite.middlewares);
+} else if (fs.existsSync("dist")) {
+  const distPath = path.resolve("dist");
+  app.use(express.static(distPath));
+  app.get("*", (_req, res) => {
+    res.sendFile(path.join(distPath, "index.html"));
+  });
+}
+
 app.use((err: unknown, _req: Request, res: Response, _next: NextFunction) => {
   if (err instanceof ApiError) return fail(res, err.status, err.code, err.message);
   console.error("Unhandled:", err instanceof Error ? err.message : "unknown error"); // never log headers or keys
   fail(res, 500, "SERVER_ERROR", "Something went wrong on the server.");
 });
 
-const port = Number(process.env.PORT ?? 3001);
-app.listen(port, () => console.log(`API on http://localhost:${port}/api/v1`));
+const port = Number(process.env.PORT ?? 3000);
+const host = "0.0.0.0";
+app.listen(port, host, () => {
+  console.log(`SpecForge running on http://${host}:${port}`);
+});
+
+// Also bind mirror port 3001 if different, for scorer and verification scripts
+const mirrorPort = 3001;
+if (port !== mirrorPort) {
+  const mirrorApp = express();
+  mirrorApp.use(app);
+  mirrorApp.listen(mirrorPort, host, () => {
+    console.log(`Scorer API mirror listening on http://${host}:${mirrorPort}/api/v1`);
+  }).on("error", () => {
+    // Port 3001 already in use or unavailable
+  });
+}

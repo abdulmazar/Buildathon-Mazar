@@ -1,0 +1,599 @@
+<!DOCTYPE html>
+
+<html lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_dashboard" name="shell-type"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base { html, body { margin: 0; padding: 0; } body { overscroll-behavior: none; } main > :first-child { margin-top: 0 !important; } main > :last-child { margin-bottom: 0 !important; } } ::-webkit-scrollbar { display: none; }</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = { darkMode: "class", theme: { extend: { "colors": { "on-tertiary-fixed-variant": "#005236", "on-error": "#ffffff", "on-primary": "#ffffff", "secondary-fixed": "#d5e3fc", "on-background": "#131b2e", "on-primary-fixed": "#001944", "tertiary-container": "#004930", "inverse-surface": "#283044", "surface-container": "#eaedff", "tertiary": "#00301f", "on-primary-container": "#8caaf0", "on-error-container": "#93000a", "on-secondary-container": "#57657a", "primary-container": "#1a3d7c", "on-primary-fixed-variant": "#234584", "on-tertiary-fixed": "#002113", "surface-variant": "#dae2fd", "surface-container-lowest": "#ffffff", "surface-container-low": "#f2f3ff", "surface-tint": "#3e5d9d", "surface-container-highest": "#dae2fd", "secondary-container": "#d5e3fc", "inverse-primary": "#afc6ff", "error": "#ba1a1a", "surface-bright": "#faf8ff", "primary-fixed-dim": "#afc6ff", "error-container": "#ffdad6", "secondary": "#515f74", "on-secondary": "#ffffff", "tertiary-fixed-dim": "#4edea3", "on-surface-variant": "#444650", "surface-dim": "#d2d9f4", "outline": "#747781", "on-surface": "#131b2e", "on-secondary-fixed-variant": "#3a485b", "primary": "#00275f", "surface": "#faf8ff", "inverse-on-surface": "#eef0ff", "tertiary-fixed": "#6ffbbe", "background": "#faf8ff", "on-tertiary-container": "#24c189", "on-tertiary": "#ffffff", "primary-fixed": "#d9e2ff", "surface-container-high": "#e2e7ff", "outline-variant": "#c4c6d2", "on-secondary-fixed": "#0d1c2e", "secondary-fixed-dim": "#b9c7df" }, "borderRadius": { "DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem" }, "spacing": { "margin": "2rem", "space-xl": "2rem", "space-xs": "0.25rem", "space-lg": "1.5rem", "gutter": "1.5rem", "space-md": "1rem", "space-sm": "0.5rem" }, "fontFamily": { "code-md": ["JetBrains Mono"], "body-md": ["Inter"], "label-md": ["Inter"], "headline-sm": ["Inter"], "headline-lg": ["Inter"], "display-lg": ["Inter"], "headline-md": ["Inter"], "label-sm": ["Inter"], "body-lg": ["Inter"], "body-sm": ["Inter"], "label-lg": ["Inter"] }, "fontSize": { "code-md": ["13px", { "lineHeight": "20px", "letterSpacing": "0em", "fontWeight": "400" }], "body-md": ["14px", { "lineHeight": "22px", "letterSpacing": "0em", "fontWeight": "400" }], "label-md": ["12px", { "lineHeight": "16px", "letterSpacing": "0.01em", "fontWeight": "500" }], "headline-sm": ["16px", { "lineHeight": "24px", "letterSpacing": "-0.005em", "fontWeight": "600" }], "headline-lg": ["24px", { "lineHeight": "32px", "letterSpacing": "-0.015em", "fontWeight": "600" }], "display-lg": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "600" }], "headline-md": ["20px", { "lineHeight": "28px", "letterSpacing": "-0.01em", "fontWeight": "600" }], "label-sm": ["11px", { "lineHeight": "14px", "letterSpacing": "0.04em", "fontWeight": "600" }], "body-lg": ["16px", { "lineHeight": "26px", "letterSpacing": "0em", "fontWeight": "400" }], "body-sm": ["12px", { "lineHeight": "18px", "letterSpacing": "0em", "fontWeight": "400" }], "label-lg": ["14px", { "lineHeight": "20px", "letterSpacing": "0em", "fontWeight": "500" }] } } } };</script></head><body class="bg-surface font-body-md text-on-surface antialiased"><header class="fixed top-0 left-0 right-0 h-16 z-50 bg-surface-container-lowest border-b border-outline-variant"><div class="h-16 w-full px-gutter flex items-center justify-between"><div class="flex items-center gap-space-lg"><div class="flex items-center gap-space-md"><img alt="Accredify Logo" class="h-8 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/AEtjO1Vh9GF_tQ07MBJ5eheSiF8MhjpvXwyfJOlq1fU6coXvQN2jsTRwDEaqqebmnwlqvaqKL9-1ENCFxPrt68ca2n95fFAnAtAuAtCeH2iSEfNtN-MdgDk19ds5KYxgjM07hvXKXRRCu4JT-p4IK0Vg-Da8JcoNebeC6moB3pX1j_b70TEM4a9IeuBxXUDjA7gmpZ5V2_kdpnis8S2yOpVRs_pVtXMBwhyClrFGDGPqdb_P"/><div class="flex flex-col"><span class="font-headline-sm text-headline-sm text-primary tracking-tight leading-none">Accredify</span><span class="font-label-sm text-label-sm text-secondary leading-none mt-space-xs">Course Specification &amp; Compliance Studio</span></div></div><div class="h-5 w-px bg-outline-variant hidden md:block"></div><nav aria-label="Breadcrumb" class="hidden lg:flex items-center gap-space-xs text-on-surface-variant font-label-md text-label-md"><span class="hover:text-primary transition-colors cursor-pointer">Course Specifications</span><span class="material-symbols-outlined text-[14px] text-outline">chevron_right</span><span class="text-primary font-semibold">CS402: Distributed Systems</span></nav></div><div class="flex items-center gap-space-md"><div class="inline-flex items-center gap-space-xs px-space-sm py-space-xs rounded-full bg-surface-container border border-outline-variant cursor-pointer hover:bg-surface-container-high transition-colors" title="LLM Runtime Provider: Gemini 1.5 Flash / Claude 3.5 Sonnet connected"><span class="relative flex h-2 w-2"><span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-tertiary-fixed-dim opacity-75"></span><span class="relative inline-flex rounded-full h-2 w-2 bg-on-tertiary-container"></span></span><span class="font-label-sm text-label-sm font-medium text-tertiary-container tracking-wide">AI: connected</span><span class="hidden xl:inline font-label-sm text-label-sm text-secondary border-l border-outline-variant pl-space-xs ml-space-xs">gemini-1.5-flash / Claude 3.5 Sonnet</span></div><div class="flex items-center bg-surface-container-low rounded-lg px-space-sm py-space-xs border border-outline-variant"><span class="font-label-sm text-label-sm text-secondary mr-space-xs">Role:</span><select class="bg-transparent font-label-md text-label-md text-on-surface focus:outline-none cursor-pointer pr-space-xs"><option selected="" value="author">Author</option><option value="reviewer">Reviewer</option><option value="hod">HOD</option></select></div><div class="inline-flex items-center gap-space-xs px-space-sm py-space-xs rounded-full bg-secondary-container text-on-secondary-fixed-variant"><span class="w-2 h-2 rounded-full bg-primary"></span><span class="font-label-sm text-label-sm font-semibold tracking-wide">Draft In Progress</span></div><button aria-label="Notifications" class="text-secondary hover:text-on-surface transition-colors p-space-xs relative" type="button"><span class="material-symbols-outlined text-[20px]">notifications</span><span class="absolute top-1 right-1 w-2 h-2 bg-error rounded-full"></span></button><div class="flex items-center gap-space-sm pl-space-md border-l border-outline-variant"><img alt="Profile" class="w-8 h-8 rounded-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA1Q4Iw2FBzUGWbLgtUEVg-AvjgZnB3MqQFtRiJewX28KuLmOk_7seeGxF5gb8Lk0xhQj6sDjA_tBsfMgaFLzvCQMvQZ2NLfZRpBOvG_MPSnVXWy6_mLqkzLr6YKP77DpA1jqSL8dQHGAasmyG1_GBuUOtl1dmNluLH5CdtAcXV6_Zf7k40XNhFbXX69ODacyTT6EPUcp9g0ycQJ-o7kPXEnRt0-3K1-uyA3jtziYw"/><div class="hidden md:flex flex-col text-left"><span class="font-label-md text-label-md text-on-surface leading-tight font-medium">Dr. Robert Vance, PhD</span><span class="font-label-sm text-label-sm text-secondary leading-tight">Computer Science &amp; Eng</span></div></div></div></div></header><aside class="fixed left-0 top-16 bottom-0 w-[250px] bg-surface-container-lowest border-r border-outline-variant z-40 flex flex-col justify-between overflow-y-auto"><div class="flex flex-col"><div class="p-space-md border-b border-outline-variant bg-surface-container-low"><div class="font-label-sm text-label-sm text-secondary uppercase tracking-wider font-semibold">Active Course</div><div class="font-label-md text-label-md text-primary font-semibold truncate mt-space-xs" title="CS402: Distributed Systems">CS402: Distributed Systems</div><div class="font-label-sm text-label-sm text-on-surface-variant">2024-25 Autumn Semester</div></div><nav class="flex flex-col py-space-sm" data-active-classes="bg-surface-container text-primary-container font-semibold border-l-4 border-primary-container pl-[20px]"><a class="flex items-center gap-space-md px-space-lg py-space-sm text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-colors" data-path="upload" href="#"><span class="material-symbols-outlined text-[18px]">cloud_upload</span><span class="font-label-md text-label-md">1. Upload</span></a><a aria-current="page" class="flex items-center gap-space-md px-space-lg py-space-sm transition-colors bg-surface-container text-primary-container font-semibold border-l-4 border-primary-container pl-[20px]" data-path="spec" href="#"><span class="material-symbols-outlined text-[18px]">edit_document</span><span class="font-label-md text-label-md">2. Spec</span></a><a class="flex items-center gap-space-md px-space-lg py-space-sm text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-colors" data-path="matrix" href="#"><span class="material-symbols-outlined text-[18px]">grid_view</span><span class="font-label-md text-label-md">3. CO-PO-PSO Map</span></a><a class="flex items-center gap-space-md px-space-lg py-space-sm text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-colors" data-path="checks" href="#"><span class="material-symbols-outlined text-[18px]">fact_check</span><span class="font-label-md text-label-md">4. Checks</span></a><a class="flex items-center gap-space-md px-space-lg py-space-sm text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-colors" data-path="workflow" href="#"><span class="material-symbols-outlined text-[18px]">schema</span><span class="font-label-md text-label-md">5. Workflow</span></a><a class="flex items-center gap-space-md px-space-lg py-space-sm text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-colors" data-path="export" href="#"><span class="material-symbols-outlined text-[18px]">picture_as_pdf</span><span class="font-label-md text-label-md">6. Export</span></a></nav></div><div class="p-space-md border-t border-outline-variant flex flex-col gap-space-xs"><a class="flex items-center gap-space-sm py-space-xs text-on-surface-variant hover:text-on-surface transition-colors font-label-md text-label-md" data-path="ai-settings" href="#"><span class="material-symbols-outlined text-[16px]">tune</span><span>AI Settings</span></a><a class="flex items-center gap-space-sm py-space-xs text-on-surface-variant hover:text-on-surface transition-colors font-label-md text-label-md" data-path="compliance-guidelines" href="#"><span class="material-symbols-outlined text-[16px]">menu_book</span><span>Compliance Guidelines</span></a><a class="flex items-center gap-space-sm py-space-xs text-on-surface-variant hover:text-on-surface transition-colors font-label-md text-label-md" data-path="system-settings" href="#"><span class="material-symbols-outlined text-[16px]">settings</span><span>System Settings</span></a></div></aside><div class="pl-[250px]"><main class="pt-16 min-h-screen bg-surface-container-low p-margin"><div class="flex flex-col w-full">
+<!-- Interactive script for sidebar synchronization and accordion mechanics -->
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+      // Sync active state on navigation sidebar
+      const navLinks = document.querySelectorAll('aside nav a[data-path]');
+      navLinks.forEach(link => {
+        if (link.getAttribute('data-path') === 'spec') {
+          link.classList.add('bg-surface-container', 'text-primary-container', 'font-semibold', 'border-l-4', 'border-primary-container', 'pl-[20px]');
+          link.classList.remove('text-on-surface-variant');
+        } else {
+          link.classList.remove('bg-surface-container', 'text-primary-container', 'font-semibold', 'border-l-4', 'border-primary-container', 'pl-[20px]');
+          link.classList.add('text-on-surface-variant');
+        }
+      });
+    });
+
+    function toggleAccordion(panelId) {
+      const content = document.getElementById(panelId + '-content');
+      const icon = document.getElementById(panelId + '-icon');
+      if (content.classList.contains('hidden')) {
+        content.classList.remove('hidden');
+        icon.classList.add('rotate-180');
+      } else {
+        content.classList.add('hidden');
+        icon.classList.remove('rotate-180');
+      }
+    }
+  </script>
+<!-- Document Header & Operational Toolbar -->
+<div class="bg-surface-container-lowest rounded-xl shadow-sm p-space-lg mb-space-lg">
+<div class="flex flex-col lg:flex-row lg:items-start lg:justify-between gap-space-md">
+<div class="flex flex-col max-w-4xl">
+<div class="flex flex-wrap items-center gap-space-sm mb-space-xs">
+<span class="px-space-sm py-0.5 rounded-full bg-secondary-container text-on-secondary-fixed-variant font-label-sm text-label-sm uppercase tracking-wider font-semibold">
+            UG Curriculum • Level 400
+          </span>
+<span class="inline-flex items-center gap-1 px-space-sm py-0.5 rounded-full bg-tertiary-fixed text-on-tertiary-fixed font-label-sm text-label-sm font-semibold">
+<span class="material-symbols-outlined text-[14px]">auto_awesome</span>
+            Engine Verified
+          </span>
+<span class="text-secondary font-code-md text-code-md">Accredify SpecID: 2024-CS-SPEC-084</span>
+</div>
+<h1 class="font-display-lg text-display-lg text-primary tracking-tight font-bold">
+          CS402: Distributed Systems &amp; Cloud Computing Architecture
+        </h1>
+<!-- Metadata Row -->
+<div class="flex flex-wrap items-center gap-y-space-xs gap-x-space-md mt-space-sm font-label-md text-label-md text-on-surface-variant">
+<div class="flex items-center gap-space-xs bg-surface-container px-space-sm py-1 rounded">
+<span class="material-symbols-outlined text-[16px] text-primary">credit_card</span>
+<span class="font-medium text-on-surface">Credits: 4 (L-T-P: 3-0-2)</span>
+</div>
+<div class="inline-flex items-center gap-space-xs px-space-sm py-1 rounded-full bg-surface-variant text-on-primary-fixed font-semibold">
+<span class="w-2 h-2 rounded-full bg-on-tertiary-container"></span>
+<span>Detected: Integrated (Theory + Lab)</span>
+</div>
+<span class="text-secondary font-body-sm text-body-sm flex items-center gap-1">
+<span class="material-symbols-outlined text-[15px] text-tertiary-container">check_circle</span>
+            Course contains 14 guided laboratory experiments mapped to continuous assessment rubrics.
+          </span>
+</div>
+</div>
+<!-- Quick Action Toolbar -->
+<div class="flex flex-wrap lg:flex-nowrap items-center gap-space-xs self-start shrink-0 pt-space-xs">
+<div class="inline-flex items-center gap-space-xs px-space-sm py-1.5 rounded-lg bg-surface-container-high text-primary font-label-md text-label-md font-semibold">
+<span class="material-symbols-outlined text-[16px]">verified</span>
+          Version 2.1 (AI Corrected)
+        </div>
+<button class="inline-flex items-center gap-space-xs px-space-sm py-1.5 rounded-lg bg-surface-container text-on-surface hover:bg-surface-container-high transition-colors font-label-md text-label-md" type="button">
+<span class="material-symbols-outlined text-[16px]">difference</span>
+          Diff with Original
+        </button>
+<button class="inline-flex items-center gap-space-xs px-space-sm py-1.5 rounded-lg bg-surface-container text-on-surface hover:bg-surface-container-high transition-colors font-label-md text-label-md" type="button">
+<span class="material-symbols-outlined text-[16px]">refresh</span>
+          Re-run AI Pass
+        </button>
+<button class="inline-flex items-center gap-space-xs px-space-md py-1.5 rounded-lg bg-primary-container text-on-primary hover:opacity-95 shadow-sm transition-all font-label-md text-label-md font-semibold" type="button">
+<span class="material-symbols-outlined text-[16px]">save</span>
+          Save Spec Draft
+        </button>
+</div>
+</div>
+</div>
+<!-- Compliance Banner with Micro-metrics -->
+<div class="grid grid-cols-1 md:grid-cols-4 gap-space-md mb-space-lg">
+<div class="bg-surface-container-lowest rounded-xl shadow-sm p-space-md flex items-center justify-between">
+<div>
+<p class="font-label-sm text-label-sm text-secondary uppercase font-semibold">Bloom's Vigour Index</p>
+<h4 class="font-headline-lg text-headline-lg text-primary font-bold">94.2%</h4>
+<span class="font-label-sm text-label-sm text-on-tertiary-container font-medium">+18% post-correction</span>
+</div>
+<div class="w-10 h-10 rounded-full bg-surface-container flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-[22px]">psychology</span>
+</div>
+</div>
+<div class="bg-surface-container-lowest rounded-xl shadow-sm p-space-md flex items-center justify-between">
+<div>
+<p class="font-label-sm text-label-sm text-secondary uppercase font-semibold">Lab-to-Theory Ratio</p>
+<h4 class="font-headline-lg text-headline-lg text-primary font-bold">1 : 1.5</h4>
+<span class="font-label-sm text-label-sm text-secondary font-medium">Optimal balance met</span>
+</div>
+<div class="w-10 h-10 rounded-full bg-surface-container flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-[22px]">biotech</span>
+</div>
+</div>
+<div class="bg-surface-container-lowest rounded-xl shadow-sm p-space-md flex items-center justify-between">
+<div>
+<p class="font-label-sm text-label-sm text-secondary uppercase font-semibold">CO Quality Score</p>
+<h4 class="font-headline-lg text-headline-lg text-primary font-bold">6 of 6 Valid</h4>
+<span class="font-label-sm text-label-sm text-on-tertiary-container font-medium">Zero weak verbs found</span>
+</div>
+<div class="w-10 h-10 rounded-full bg-surface-container flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-[22px]">task_alt</span>
+</div>
+</div>
+<div class="bg-surface-container-lowest rounded-xl shadow-sm p-space-md flex items-center justify-between">
+<div>
+<p class="font-label-sm text-label-sm text-secondary uppercase font-semibold">Audit Status</p>
+<h4 class="font-headline-lg text-headline-lg text-tertiary-container font-bold">Compliant</h4>
+<span class="font-label-sm text-label-sm text-secondary font-medium">Ready for HOD Review</span>
+</div>
+<div class="w-10 h-10 rounded-full bg-tertiary-fixed text-on-tertiary-fixed flex items-center justify-center">
+<span class="material-symbols-outlined text-[22px]">verified_user</span>
+</div>
+</div>
+</div>
+<!-- Stacked Accordion Container -->
+<div class="flex flex-col gap-space-md">
+<!-- 1. Course Summary & Objectives (EXPANDED) -->
+<section class="bg-surface-container-lowest rounded-xl shadow-sm overflow-hidden">
+<div class="w-full px-space-lg py-space-md flex items-center justify-between bg-surface-container-lowest cursor-pointer select-none" onclick="toggleAccordion('panel-summary')">
+<div class="flex items-center gap-space-sm">
+<span class="w-7 h-7 rounded-lg bg-surface-container flex items-center justify-center text-primary font-semibold font-label-md text-label-md">01</span>
+<h2 class="font-headline-md text-headline-md text-primary font-semibold">Course Summary &amp; Objectives</h2>
+<span class="inline-flex items-center gap-1 px-space-sm py-0.5 rounded-full bg-surface-variant text-primary font-label-sm text-label-sm">
+<span class="material-symbols-outlined text-[13px]">auto_awesome</span>
+            AI Verb Refinement Active
+          </span>
+</div>
+<div class="flex items-center gap-space-sm">
+<button aria-label="Edit course summary" class="p-1.5 rounded-lg text-secondary hover:text-primary hover:bg-surface-container transition-colors" onclick="event.stopPropagation()" type="button">
+<span class="material-symbols-outlined text-[18px]">edit</span>
+</button>
+<span class="material-symbols-outlined text-secondary transition-transform duration-200 rotate-180" id="panel-summary-icon">expand_more</span>
+</div>
+</div>
+<div class="px-space-lg pb-space-lg pt-space-xs flex flex-col gap-space-md" id="panel-summary-content">
+<div class="p-space-md rounded-lg bg-surface-container-low flex flex-col gap-space-sm">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm text-secondary uppercase font-bold tracking-wider">Executive Course Summary</span>
+<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded bg-surface-container text-primary font-label-sm text-label-sm font-medium">
+<span class="material-symbols-outlined text-[12px]">arrow_back_ios_new</span> edited by AI
+            </span>
+</div>
+<p class="font-body-md text-body-md text-on-surface leading-relaxed">
+            This course addresses foundational and contemporary abstractions in distributed computation, synchronization paradigms, consensus, fault resilience, and modern hyperscale cloud infrastructures. Students will transition from rudimentary distributed theoretical topologies to
+            <span class="bg-surface-variant text-on-primary-fixed px-1 rounded font-semibold inline-flex items-center gap-1">
+<span class="material-symbols-outlined text-[12px]">auto_awesome</span>
+              formulate and deploy
+            </span>
+            production-grade multi-region decentralized protocols, asynchronous RPC runtimes, and resilient quorum services capable of strictly maintaining partition safety under high concurrency.
+          </p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-space-md">
+<div class="p-space-md rounded-lg bg-surface-container-low flex flex-col gap-space-xs">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm text-secondary uppercase font-bold">Course Goal 1: Theoretical Foundation</span>
+<span class="px-1.5 py-0.5 rounded text-[10px] font-semibold bg-surface-container text-primary">REVISED</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface">
+              Deconstruct time synchrony, logical vectors, and Lamport causality metrics across globally unsynchronized physical clocks.
+            </p>
+</div>
+<div class="p-space-md rounded-lg bg-surface-container-low flex flex-col gap-space-xs">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm text-secondary uppercase font-bold">Course Goal 2: Practical Implementation</span>
+<span class="px-1.5 py-0.5 rounded text-[10px] font-semibold bg-surface-container text-primary">REVISED</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface">
+              Architect and bench-test quorum-based write protocols utilizing consensus primitives over real network emulation rings.
+            </p>
+</div>
+</div>
+</div>
+</section>
+<!-- 2. Course Size and Credits (COLLAPSED / PREVIEW) -->
+<section class="bg-surface-container-lowest rounded-xl shadow-sm overflow-hidden">
+<div class="w-full px-space-lg py-space-md flex items-center justify-between bg-surface-container-lowest cursor-pointer select-none" onclick="toggleAccordion('panel-credits')">
+<div class="flex items-center gap-space-sm">
+<span class="w-7 h-7 rounded-lg bg-surface-container flex items-center justify-center text-primary font-semibold font-label-md text-label-md">02</span>
+<h2 class="font-headline-md text-headline-md text-primary font-semibold">Course Size and Credits</h2>
+<div class="hidden sm:flex items-center gap-space-md ml-space-md font-label-sm text-label-sm text-secondary">
+<span>Lecture: <strong class="text-on-surface">42 hrs</strong></span>
+<span>•</span>
+<span>Practical: <strong class="text-on-surface">28 hrs</strong></span>
+<span>•</span>
+<span>Total Contact: <strong class="text-on-surface">70 hrs</strong></span>
+</div>
+</div>
+<div class="flex items-center gap-space-sm">
+<span class="material-symbols-outlined text-secondary transition-transform duration-200" id="panel-credits-icon">expand_more</span>
+</div>
+</div>
+<div class="hidden px-space-lg pb-space-lg pt-space-xs" id="panel-credits-content">
+<div class="grid grid-cols-1 sm:grid-cols-3 gap-space-md">
+<div class="p-space-md rounded-lg bg-surface-container-low">
+<p class="font-label-sm text-label-sm text-secondary">Theory (Lecture) Allocation</p>
+<h3 class="font-headline-lg text-headline-lg text-primary font-bold mt-1">42 Hours</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1">3 Lecture slots per week @ 14 teaching cycles</p>
+</div>
+<div class="p-space-md rounded-lg bg-surface-container-low">
+<p class="font-label-sm text-label-sm text-secondary">Laboratory &amp; Hands-on</p>
+<h3 class="font-headline-lg text-headline-lg text-primary font-bold mt-1">28 Hours</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1">2 Lab slots per week across 14 interactive cohorts</p>
+</div>
+<div class="p-space-md rounded-lg bg-surface-container-low">
+<p class="font-label-sm text-label-sm text-secondary">Aggregate Academic Workload</p>
+<h3 class="font-headline-lg text-headline-lg text-primary font-bold mt-1">70 Hours</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1">Complies with UGC / AICTE 4-credit standard (120 hrs self-study included)</p>
+</div>
+</div>
+</div>
+</section>
+<!-- 3. Course Outcomes (COs) (EXPANDED) -->
+<section class="bg-surface-container-lowest rounded-xl shadow-sm overflow-hidden">
+<div class="w-full px-space-lg py-space-md flex items-center justify-between bg-surface-container-lowest cursor-pointer select-none" onclick="toggleAccordion('panel-cos')">
+<div class="flex items-center gap-space-sm">
+<span class="w-7 h-7 rounded-lg bg-surface-container flex items-center justify-center text-primary font-semibold font-label-md text-label-md">03</span>
+<h2 class="font-headline-md text-headline-md text-primary font-semibold">Course Outcomes (COs)</h2>
+<span class="px-space-sm py-0.5 rounded-full bg-surface-container text-primary font-label-sm text-label-sm font-semibold">6 Defined</span>
+</div>
+<div class="flex items-center gap-space-sm">
+<button class="text-primary hover:bg-surface-container px-space-sm py-1 rounded text-label-md font-medium transition-colors" onclick="event.stopPropagation()" type="button">+ Add CO</button>
+<span class="material-symbols-outlined text-secondary transition-transform duration-200 rotate-180" id="panel-cos-icon">expand_more</span>
+</div>
+</div>
+<div class="px-space-lg pb-space-lg pt-space-xs overflow-x-auto" id="panel-cos-content">
+<table class="w-full text-left">
+<thead>
+<tr class="bg-surface-container-low font-label-md text-label-md text-secondary">
+<th class="py-2.5 px-space-md rounded-l-lg w-20">CO ID</th>
+<th class="py-2.5 px-space-md">Course Outcome Statement</th>
+<th class="py-2.5 px-space-md w-44">Bloom's Taxonomy</th>
+<th class="py-2.5 px-space-md rounded-r-lg w-48">Assessment Tool</th>
+</tr>
+</thead>
+<tbody class="divide-y-0 font-body-sm text-body-sm">
+<!-- CO1 -->
+<tr class="hover:bg-surface-container-low transition-colors">
+<td class="py-space-md px-space-md font-code-md text-code-md text-primary font-bold">CO1</td>
+<td class="py-space-md px-space-md text-on-surface">
+<span class="inline-flex items-center gap-1 font-semibold text-primary bg-surface-variant px-1 rounded">
+<span class="material-symbols-outlined text-[11px]">auto_awesome</span> Analyze
+                </span>
+                theoretical bounds, Lamport clock synchronizations, and vector causality mechanisms in heterogeneous uncoordinated network models.
+              </td>
+<td class="py-space-md px-space-md">
+<span class="inline-flex items-center px-space-sm py-0.5 rounded-full bg-surface-variant text-on-primary-fixed font-label-sm text-label-sm font-semibold">
+                  K4 - Analyzing
+                </span>
+</td>
+<td class="py-space-md px-space-md text-secondary font-medium">Midterm Quiz &amp; Problem Sets</td>
+</tr>
+<!-- CO2 -->
+<tr class="hover:bg-surface-container-low transition-colors bg-surface-container-lowest">
+<td class="py-space-md px-space-md font-code-md text-code-md text-primary font-bold">CO2</td>
+<td class="py-space-md px-space-md text-on-surface">
+<span class="inline-flex items-center gap-1 font-semibold text-primary bg-surface-variant px-1 rounded">
+<span class="material-symbols-outlined text-[11px]">auto_awesome</span> Deconstruct
+                </span>
+                the CAP Theorem trade-offs and evaluate consistency guarantees across eventually consistent multi-master distributed data stores.
+              </td>
+<td class="py-space-md px-space-md">
+<span class="inline-flex items-center px-space-sm py-0.5 rounded-full bg-surface-container text-primary font-label-sm text-label-sm font-semibold">
+                  K4 - Analyzing
+                </span>
+</td>
+<td class="py-space-md px-space-md text-secondary font-medium">Written Exam &amp; Case Study</td>
+</tr>
+<!-- CO3 -->
+<tr class="hover:bg-surface-container-low transition-colors">
+<td class="py-space-md px-space-md font-code-md text-code-md text-primary font-bold">CO3</td>
+<td class="py-space-md px-space-md text-on-surface">
+<span class="inline-flex items-center gap-1 font-semibold text-primary bg-surface-variant px-1 rounded">
+<span class="material-symbols-outlined text-[11px]">auto_awesome</span> Implement
+                </span>
+                state-machine replication by programming Paxos and Raft consensus algorithms in modern concurrent environments.
+              </td>
+<td class="py-space-md px-space-md">
+<span class="inline-flex items-center px-space-sm py-0.5 rounded-full bg-secondary-container text-on-secondary-fixed-variant font-label-sm text-label-sm font-semibold">
+                  K3 - Applying
+                </span>
+</td>
+<td class="py-space-md px-space-md text-secondary font-medium">Lab Milestone: Raft Cluster</td>
+</tr>
+<!-- CO4 -->
+<tr class="hover:bg-surface-container-low transition-colors bg-surface-container-lowest">
+<td class="py-space-md px-space-md font-code-md text-code-md text-primary font-bold">CO4</td>
+<td class="py-space-md px-space-md text-on-surface">
+<span class="inline-flex items-center gap-1 font-semibold text-primary bg-surface-variant px-1 rounded">
+<span class="material-symbols-outlined text-[11px]">auto_awesome</span> Synthesize
+                </span>
+                fault-tolerant protocols handling network partitions, Byzantine failures, and asynchronous node crash recoveries.
+              </td>
+<td class="py-space-md px-space-md">
+<span class="inline-flex items-center px-space-sm py-0.5 rounded-full bg-surface-container-highest text-primary font-label-sm text-label-sm font-semibold">
+                  K5 - Evaluating
+                </span>
+</td>
+<td class="py-space-md px-space-md text-secondary font-medium">Chaos Testing Rubric / CIE</td>
+</tr>
+<!-- CO5 -->
+<tr class="hover:bg-surface-container-low transition-colors">
+<td class="py-space-md px-space-md font-code-md text-code-md text-primary font-bold">CO5</td>
+<td class="py-space-md px-space-md text-on-surface">
+<span class="inline-flex items-center gap-1 font-semibold text-primary bg-surface-variant px-1 rounded">
+<span class="material-symbols-outlined text-[11px]">auto_awesome</span> Architect
+                </span>
+                hyperscale cloud-native microservices orchestrated through containerized runtimes and service-mesh telemetry networks.
+              </td>
+<td class="py-space-md px-space-md">
+<span class="inline-flex items-center px-space-sm py-0.5 rounded-full bg-tertiary-fixed text-on-tertiary-fixed font-label-sm text-label-sm font-semibold">
+                  K6 - Creating
+                </span>
+</td>
+<td class="py-space-md px-space-md text-secondary font-medium">Capstone Cloud Deployment</td>
+</tr>
+<!-- CO6 -->
+<tr class="hover:bg-surface-container-low transition-colors bg-surface-container-lowest">
+<td class="py-space-md px-space-md font-code-md text-code-md text-primary font-bold">CO6</td>
+<td class="py-space-md px-space-md text-on-surface">
+<span class="inline-flex items-center gap-1 font-semibold text-primary bg-surface-variant px-1 rounded">
+<span class="material-symbols-outlined text-[11px]">auto_awesome</span> Formulate
+                </span>
+                remediation procedures and conduct latency benchmark audits under induced extreme traffic workloads.
+              </td>
+<td class="py-space-md px-space-md">
+<span class="inline-flex items-center px-space-sm py-0.5 rounded-full bg-surface-container-highest text-primary font-label-sm text-label-sm font-semibold">
+                  K5 - Evaluating
+                </span>
+</td>
+<td class="py-space-md px-space-md text-secondary font-medium">End-Semester Practical Defense</td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<!-- 4. Course Contents (Modular Syllabus) (EXPANDED) -->
+<section class="bg-surface-container-lowest rounded-xl shadow-sm overflow-hidden">
+<div class="w-full px-space-lg py-space-md flex items-center justify-between bg-surface-container-lowest cursor-pointer select-none" onclick="toggleAccordion('panel-syllabus')">
+<div class="flex items-center gap-space-sm">
+<span class="w-7 h-7 rounded-lg bg-surface-container flex items-center justify-center text-primary font-semibold font-label-md text-label-md">04</span>
+<h2 class="font-headline-md text-headline-md text-primary font-semibold">Course Contents (Modular Syllabus)</h2>
+<span class="font-label-sm text-label-sm text-secondary">5 Core Modules • 42 L Hours</span>
+</div>
+<div class="flex items-center gap-space-sm">
+<span class="material-symbols-outlined text-secondary transition-transform duration-200 rotate-180" id="panel-syllabus-icon">expand_more</span>
+</div>
+</div>
+<div class="px-space-lg pb-space-lg pt-space-xs flex flex-col gap-space-md" id="panel-syllabus-content">
+<!-- Module 1 -->
+<div class="p-space-md rounded-lg bg-surface-container-low flex flex-col gap-space-xs">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-space-sm">
+<span class="px-2 py-0.5 rounded bg-primary text-on-primary font-code-md text-code-md font-bold">MOD 1</span>
+<h3 class="font-headline-sm text-headline-sm text-primary font-semibold">Distributed System Models &amp; Logical Time</h3>
+</div>
+<span class="font-label-md text-label-md font-bold text-secondary">8 Hours</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+            Architectural models (client-server, peer-to-peer, overlay networks). Physical vs. Logical Clocks, Lamport timestamps, Vector clocks, matrix clocks. Global snapshot algorithms: Chandy-Lamport recording.
+          </p>
+<div class="flex flex-wrap gap-1 mt-1">
+<span class="px-2 py-0.5 rounded bg-surface-container text-on-surface font-label-sm text-label-sm">#LamportClocks</span>
+<span class="px-2 py-0.5 rounded bg-surface-container text-on-surface font-label-sm text-label-sm">#ChandyLamport</span>
+<span class="px-2 py-0.5 rounded bg-surface-container text-on-surface font-label-sm text-label-sm">#VectorTime</span>
+</div>
+</div>
+<!-- Module 2 -->
+<div class="p-space-md rounded-lg bg-surface-container-low flex flex-col gap-space-xs">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-space-sm">
+<span class="px-2 py-0.5 rounded bg-primary text-on-primary font-code-md text-code-md font-bold">MOD 2</span>
+<h3 class="font-headline-sm text-headline-sm text-primary font-semibold">Distributed Mutual Exclusion &amp; Consensus Engines</h3>
+</div>
+<span class="font-label-md text-label-md font-bold text-secondary">10 Hours</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+            Ricart-Agrawala, Maekawa quorum algorithm. Leader election (Bully, Ring). The Consensus problem: FLP Impossibility Proof, Paxos state machine consensus, Raft consensus protocol: Leader election, log replication, and joint consensus safety.
+          </p>
+<div class="flex flex-wrap gap-1 mt-1">
+<span class="px-2 py-0.5 rounded bg-surface-container text-on-surface font-label-sm text-label-sm">#RaftProtocol</span>
+<span class="px-2 py-0.5 rounded bg-surface-container text-on-surface font-label-sm text-label-sm">#Paxos</span>
+<span class="px-2 py-0.5 rounded bg-surface-container text-on-surface font-label-sm text-label-sm">#FLPImpossibility</span>
+</div>
+</div>
+<!-- Module 3 -->
+<div class="p-space-md rounded-lg bg-surface-container-low flex flex-col gap-space-xs">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-space-sm">
+<span class="px-2 py-0.5 rounded bg-primary text-on-primary font-code-md text-code-md font-bold">MOD 3</span>
+<h3 class="font-headline-sm text-headline-sm text-primary font-semibold">Fault Tolerance &amp; Distributed Transactions</h3>
+</div>
+<span class="font-label-md text-label-md font-bold text-secondary">8 Hours</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+            Failure detectors, Byzantine Generals Problem, PBFT protocol overview. Two-Phase Commit (2PC) and Three-Phase Commit (3PC). Distributed deadlock detection. Quorum-based consistency models.
+          </p>
+<div class="flex flex-wrap gap-1 mt-1">
+<span class="px-2 py-0.5 rounded bg-surface-container text-on-surface font-label-sm text-label-sm">#TwoPhaseCommit</span>
+<span class="px-2 py-0.5 rounded bg-surface-container text-on-surface font-label-sm text-label-sm">#PBFT</span>
+<span class="px-2 py-0.5 rounded bg-surface-container text-on-surface font-label-sm text-label-sm">#ByzantineFaults</span>
+</div>
+</div>
+<!-- Module 4 -->
+<div class="p-space-md rounded-lg bg-surface-container-low flex flex-col gap-space-xs">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-space-sm">
+<span class="px-2 py-0.5 rounded bg-primary text-on-primary font-code-md text-code-md font-bold">MOD 4</span>
+<h3 class="font-headline-sm text-headline-sm text-primary font-semibold">Cloud Infrastructure &amp; Container Orchestration</h3>
+</div>
+<span class="font-label-md text-label-md font-bold text-secondary">8 Hours</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+            Virtualization vs Containerization internals (cgroups, namespaces). Cloud service topologies: IaaS, PaaS, Serverless runtimes. Kubernetes architecture: etcd cluster state, kube-apiserver, controllers, and Envoy service mesh ingress controllers.
+          </p>
+<div class="flex flex-wrap gap-1 mt-1">
+<span class="px-2 py-0.5 rounded bg-surface-container text-on-surface font-label-sm text-label-sm">#Kubernetes</span>
+<span class="px-2 py-0.5 rounded bg-surface-container text-on-surface font-label-sm text-label-sm">#ServiceMesh</span>
+<span class="px-2 py-0.5 rounded bg-surface-container text-on-surface font-label-sm text-label-sm">#Serverless</span>
+</div>
+</div>
+<!-- Module 5 -->
+<div class="p-space-md rounded-lg bg-surface-container-low flex flex-col gap-space-xs">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-space-sm">
+<span class="px-2 py-0.5 rounded bg-primary text-on-primary font-code-md text-code-md font-bold">MOD 5</span>
+<h3 class="font-headline-sm text-headline-sm text-primary font-semibold">Large Scale Storage Systems &amp; Data Partitions</h3>
+</div>
+<span class="font-label-md text-label-md font-bold text-secondary">8 Hours</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+            Distributed Hash Tables (Chord, Pastry). Consistent Hashing. Google File System (GFS) &amp; Hadoop HDFS architecture. DynamoDB partition ring, virtual nodes, hinted handoff, and read-repair semantics.
+          </p>
+<div class="flex flex-wrap gap-1 mt-1">
+<span class="px-2 py-0.5 rounded bg-surface-container text-on-surface font-label-sm text-label-sm">#ConsistentHashing</span>
+<span class="px-2 py-0.5 rounded bg-surface-container text-on-surface font-label-sm text-label-sm">#ChordDHT</span>
+<span class="px-2 py-0.5 rounded bg-surface-container text-on-surface font-label-sm text-label-sm">#DynamoTopology</span>
+</div>
+</div>
+</div>
+</section>
+<!-- 5. Teaching and Learning Methods (COLLAPSED / TOGGLEABLE) -->
+<section class="bg-surface-container-lowest rounded-xl shadow-sm overflow-hidden">
+<div class="w-full px-space-lg py-space-md flex items-center justify-between bg-surface-container-lowest cursor-pointer select-none" onclick="toggleAccordion('panel-methods')">
+<div class="flex items-center gap-space-sm">
+<span class="w-7 h-7 rounded-lg bg-surface-container flex items-center justify-center text-primary font-semibold font-label-md text-label-md">05</span>
+<h2 class="font-headline-md text-headline-md text-primary font-semibold">Teaching and Learning Methods</h2>
+<span class="font-label-sm text-label-sm text-secondary">Active Learning Strategy</span>
+</div>
+<div class="flex items-center gap-space-sm">
+<span class="material-symbols-outlined text-secondary transition-transform duration-200" id="panel-methods-icon">expand_more</span>
+</div>
+</div>
+<div class="hidden px-space-lg pb-space-lg pt-space-xs" id="panel-methods-content">
+<div class="grid grid-cols-1 md:grid-cols-3 gap-space-md">
+<div class="p-space-md rounded-lg bg-surface-container-low flex flex-col gap-1">
+<div class="flex items-center gap-2 text-primary font-semibold font-label-lg text-label-lg">
+<span class="material-symbols-outlined text-[18px]">terminal</span>
+              Cloud Sandboxes &amp; Labs
+            </div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+              Hands-on testbed sessions executing live partition simulations using minikube, Docker network namespaces, and chaos engineering injection scripts.
+            </p>
+</div>
+<div class="p-space-md rounded-lg bg-surface-container-low flex flex-col gap-1">
+<div class="flex items-center gap-2 text-primary font-semibold font-label-lg text-label-lg">
+<span class="material-symbols-outlined text-[18px]">group_work</span>
+              Peer Code Reviews
+            </div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+              Students audit peer implementations of Raft RPC consensus handlers against automated linearizability verification test harnesses.
+            </p>
+</div>
+<div class="p-space-md rounded-lg bg-surface-container-low flex flex-col gap-1">
+<div class="flex items-center gap-2 text-primary font-semibold font-label-lg text-label-lg">
+<span class="material-symbols-outlined text-[18px]">menu_book</span>
+              Original Paper Seminars
+            </div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+              In-depth dissection of landmark research publications (Google Spanner, Amazon Dynamo, Raft paper by Ongaro &amp; Ousterhout).
+            </p>
+</div>
+</div>
+</div>
+</section>
+<!-- 6. Assessment Scheme & Weightage (EXPANDED) -->
+<section class="bg-surface-container-lowest rounded-xl shadow-sm overflow-hidden">
+<div class="w-full px-space-lg py-space-md flex items-center justify-between bg-surface-container-lowest cursor-pointer select-none" onclick="toggleAccordion('panel-assessment')">
+<div class="flex items-center gap-space-sm">
+<span class="w-7 h-7 rounded-lg bg-surface-container flex items-center justify-center text-primary font-semibold font-label-md text-label-md">06</span>
+<h2 class="font-headline-md text-headline-md text-primary font-semibold">Assessment Scheme &amp; Weightage</h2>
+<span class="inline-flex items-center px-space-sm py-0.5 rounded-full bg-tertiary-fixed text-on-tertiary-fixed font-label-sm text-label-sm font-semibold">
+            100% Balanced
+          </span>
+</div>
+<div class="flex items-center gap-space-sm">
+<span class="material-symbols-outlined text-secondary transition-transform duration-200 rotate-180" id="panel-assessment-icon">expand_more</span>
+</div>
+</div>
+<div class="px-space-lg pb-space-lg pt-space-xs flex flex-col gap-space-md" id="panel-assessment-content">
+<table class="w-full text-left">
+<thead>
+<tr class="bg-surface-container-low font-label-md text-label-md text-secondary">
+<th class="py-2.5 px-space-md rounded-l-lg">Evaluation Component</th>
+<th class="py-2.5 px-space-md">Assessment Sub-Tools</th>
+<th class="py-2.5 px-space-md">Mapped COs</th>
+<th class="py-2.5 px-space-md rounded-r-lg text-right">Weightage</th>
+</tr>
+</thead>
+<tbody class="font-body-sm text-body-sm">
+<tr class="hover:bg-surface-container-low transition-colors">
+<td class="py-space-md px-space-md font-medium text-primary">Continuous Internal Evaluation (CIE)</td>
+<td class="py-space-md px-space-md text-on-surface-variant">2 Quizzes, 3 Coding Assignments, 1 Case Study</td>
+<td class="py-space-md px-space-md font-code-md text-code-md">CO1, CO2, CO4</td>
+<td class="py-space-md px-space-md text-right font-bold text-on-surface">40%</td>
+</tr>
+<tr class="hover:bg-surface-container-low transition-colors bg-surface-container-lowest">
+<td class="py-space-md px-space-md font-medium text-primary">Midterm Examination</td>
+<td class="py-space-md px-space-md text-on-surface-variant">Closed-book Theory Examination (2 Hours)</td>
+<td class="py-space-md px-space-md font-code-md text-code-md">CO1, CO2, CO3</td>
+<td class="py-space-md px-space-md text-right font-bold text-on-surface">20%</td>
+</tr>
+<tr class="hover:bg-surface-container-low transition-colors">
+<td class="py-space-md px-space-md font-medium text-primary">Lab Practical Examination</td>
+<td class="py-space-md px-space-md text-on-surface-variant">Live Coding, Quorum Benchmark Defense &amp; Viva</td>
+<td class="py-space-md px-space-md font-code-md text-code-md">CO3, CO5, CO6</td>
+<td class="py-space-md px-space-md text-right font-bold text-on-surface">20%</td>
+</tr>
+<tr class="hover:bg-surface-container-low transition-colors bg-surface-container-lowest">
+<td class="py-space-md px-space-md font-medium text-primary">Semester End Examination (SEE)</td>
+<td class="py-space-md px-space-md text-on-surface-variant">Comprehensive University Theory Paper (3 Hours)</td>
+<td class="py-space-md px-space-md font-code-md text-code-md">CO1 - CO6</td>
+<td class="py-space-md px-space-md text-right font-bold text-on-surface">20%</td>
+</tr>
+</tbody>
+</table>
+<div class="p-space-md rounded-lg bg-surface-container-low flex flex-col sm:flex-row sm:items-center justify-between gap-space-xs">
+<div class="flex items-center gap-space-xs text-on-tertiary-container font-semibold">
+<span class="material-symbols-outlined text-[20px]">check_circle</span>
+<span class="font-headline-sm text-headline-sm">Total: 100% (Compliant with AICTE/ABET guidelines)</span>
+</div>
+<span class="font-label-md text-label-md text-secondary">Internal Weight: 60% • Terminal Weight: 40%</span>
+</div>
+</div>
+</section>
+<!-- 7. Resources & Prescribed References (COLLAPSED) -->
+<section class="bg-surface-container-lowest rounded-xl shadow-sm overflow-hidden">
+<div class="w-full px-space-lg py-space-md flex items-center justify-between bg-surface-container-lowest cursor-pointer select-none" onclick="toggleAccordion('panel-resources')">
+<div class="flex items-center gap-space-sm">
+<span class="w-7 h-7 rounded-lg bg-surface-container flex items-center justify-center text-primary font-semibold font-label-md text-label-md">07</span>
+<h2 class="font-headline-md text-headline-md text-primary font-semibold">Resources &amp; Prescribed References</h2>
+<span class="font-label-sm text-label-sm text-secondary">3 Textbooks • 4 Landmark Papers</span>
+</div>
+<div class="flex items-center gap-space-sm">
+<span class="material-symbols-outlined text-secondary transition-transform duration-200" id="panel-resources-icon">expand_more</span>
+</div>
+</div>
+<div class="hidden px-space-lg pb-space-lg pt-space-xs flex flex-col gap-space-sm" id="panel-resources-content">
+<div class="p-space-sm rounded bg-surface-container-low flex items-start gap-space-sm">
+<span class="material-symbols-outlined text-secondary text-[20px] mt-0.5">menu_book</span>
+<div>
+<p class="font-body-md text-body-md text-on-surface font-semibold">Designing Data-Intensive Applications</p>
+<p class="font-body-sm text-body-sm text-secondary">Martin Kleppmann, O'Reilly Media, 1st Edition (2017)</p>
+</div>
+</div>
+<div class="p-space-sm rounded bg-surface-container-low flex items-start gap-space-sm">
+<span class="material-symbols-outlined text-secondary text-[20px] mt-0.5">menu_book</span>
+<div>
+<p class="font-body-md text-body-md text-on-surface font-semibold">Distributed Systems: Concepts and Design</p>
+<p class="font-body-sm text-body-sm text-secondary">George Coulouris, Jean Dollimore, Tim Kindberg, Gordon Blair, Pearson, 5th Edition</p>
+</div>
+</div>
+<div class="p-space-sm rounded bg-surface-container-low flex items-start gap-space-sm">
+<span class="material-symbols-outlined text-secondary text-[20px] mt-0.5">article</span>
+<div>
+<p class="font-body-md text-body-md text-on-surface font-semibold">In Search of an Understandable Consensus Algorithm (Extended Version)</p>
+<p class="font-body-sm text-body-sm text-secondary">Diego Ongaro and John Ousterhout, Stanford University (2014)</p>
+</div>
+</div>
+</div>
+</section>
+</div>
+</div></main></div></body></html>

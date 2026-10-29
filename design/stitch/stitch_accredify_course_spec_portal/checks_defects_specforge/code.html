@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+
+<html lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_dashboard" name="shell-type"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base { html, body { margin: 0; padding: 0; } body { overscroll-behavior: none; } main > :first-child { margin-top: 0 !important; } main > :last-child { margin-bottom: 0 !important; } } ::-webkit-scrollbar { display: none; }</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = { darkMode: "class", theme: { extend: { "colors": { "on-tertiary-fixed-variant": "#005236", "on-error": "#ffffff", "on-primary": "#ffffff", "secondary-fixed": "#d5e3fc", "on-background": "#131b2e", "on-primary-fixed": "#001944", "tertiary-container": "#004930", "inverse-surface": "#283044", "surface-container": "#eaedff", "tertiary": "#00301f", "on-primary-container": "#8caaf0", "on-error-container": "#93000a", "on-secondary-container": "#57657a", "primary-container": "#1a3d7c", "on-primary-fixed-variant": "#234584", "on-tertiary-fixed": "#002113", "surface-variant": "#dae2fd", "surface-container-lowest": "#ffffff", "surface-container-low": "#f2f3ff", "surface-tint": "#3e5d9d", "surface-container-highest": "#dae2fd", "secondary-container": "#d5e3fc", "inverse-primary": "#afc6ff", "error": "#ba1a1a", "surface-bright": "#faf8ff", "primary-fixed-dim": "#afc6ff", "error-container": "#ffdad6", "secondary": "#515f74", "on-secondary": "#ffffff", "tertiary-fixed-dim": "#4edea3", "on-surface-variant": "#444650", "surface-dim": "#d2d9f4", "outline": "#747781", "on-surface": "#131b2e", "on-secondary-fixed-variant": "#3a485b", "primary": "#00275f", "surface": "#faf8ff", "inverse-on-surface": "#eef0ff", "tertiary-fixed": "#6ffbbe", "background": "#faf8ff", "on-tertiary-container": "#24c189", "on-tertiary": "#ffffff", "primary-fixed": "#d9e2ff", "surface-container-high": "#e2e7ff", "outline-variant": "#c4c6d2", "on-secondary-fixed": "#0d1c2e", "secondary-fixed-dim": "#b9c7df" }, "borderRadius": { "DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem" }, "spacing": { "margin": "2rem", "space-xl": "2rem", "space-xs": "0.25rem", "space-lg": "1.5rem", "gutter": "1.5rem", "space-md": "1rem", "space-sm": "0.5rem" }, "fontFamily": { "code-md": ["JetBrains Mono"], "body-md": ["Inter"], "label-md": ["Inter"], "headline-sm": ["Inter"], "headline-lg": ["Inter"], "display-lg": ["Inter"], "headline-md": ["Inter"], "label-sm": ["Inter"], "body-lg": ["Inter"], "body-sm": ["Inter"], "label-lg": ["Inter"] }, "fontSize": { "code-md": ["13px", { "lineHeight": "20px", "letterSpacing": "0em", "fontWeight": "400" }], "body-md": ["14px", { "lineHeight": "22px", "letterSpacing": "0em", "fontWeight": "400" }], "label-md": ["12px", { "lineHeight": "16px", "letterSpacing": "0.01em", "fontWeight": "500" }], "headline-sm": ["16px", { "lineHeight": "24px", "letterSpacing": "-0.005em", "fontWeight": "600" }], "headline-lg": ["24px", { "lineHeight": "32px", "letterSpacing": "-0.015em", "fontWeight": "600" }], "display-lg": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "600" }], "headline-md": ["20px", { "lineHeight": "28px", "letterSpacing": "-0.01em", "fontWeight": "600" }], "label-sm": ["11px", { "lineHeight": "14px", "letterSpacing": "0.04em", "fontWeight": "600" }], "body-lg": ["16px", { "lineHeight": "26px", "letterSpacing": "0em", "fontWeight": "400" }], "body-sm": ["12px", { "lineHeight": "18px", "letterSpacing": "0em", "fontWeight": "400" }], "label-lg": ["14px", { "lineHeight": "20px", "letterSpacing": "0em", "fontWeight": "500" }] } } } };</script></head><body class="bg-surface font-body-md text-on-surface antialiased"><header class="fixed top-0 left-0 right-0 h-16 z-50 bg-surface-container-lowest border-b border-outline-variant"><div class="h-16 w-full px-gutter flex items-center justify-between"><div class="flex items-center gap-space-lg"><div class="flex items-center gap-space-md"><img alt="Accredify Logo" class="h-8 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/AEtjO1Vh9GF_tQ07MBJ5eheSiF8MhjpvXwyfJOlq1fU6coXvQN2jsTRwDEaqqebmnwlqvaqKL9-1ENCFxPrt68ca2n95fFAnAtAuAtCeH2iSEfNtN-MdgDk19ds5KYxgjM07hvXKXRRCu4JT-p4IK0Vg-Da8JcoNebeC6moB3pX1j_b70TEM4a9IeuBxXUDjA7gmpZ5V2_kdpnis8S2yOpVRs_pVtXMBwhyClrFGDGPqdb_P"/><div class="flex flex-col"><span class="font-headline-sm text-headline-sm text-primary tracking-tight leading-none">Accredify</span><span class="font-label-sm text-label-sm text-secondary leading-none mt-space-xs">Course Specification &amp; Compliance Studio</span></div></div><div class="h-5 w-px bg-outline-variant hidden md:block"></div><nav aria-label="Breadcrumb" class="hidden lg:flex items-center gap-space-xs text-on-surface-variant font-label-md text-label-md"><span class="hover:text-primary transition-colors cursor-pointer">Course Specifications</span><span class="material-symbols-outlined text-[14px] text-outline">chevron_right</span><span class="text-primary font-semibold">CS402: Distributed Systems</span></nav></div><div class="flex items-center gap-space-md"><div class="inline-flex items-center gap-space-xs px-space-sm py-space-xs rounded-full bg-surface-container border border-outline-variant cursor-pointer hover:bg-surface-container-high transition-colors" title="LLM Runtime Provider: Gemini 1.5 Flash / Claude 3.5 Sonnet connected"><span class="relative flex h-2 w-2"><span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-tertiary-fixed-dim opacity-75"></span><span class="relative inline-flex rounded-full h-2 w-2 bg-on-tertiary-container"></span></span><span class="font-label-sm text-label-sm font-medium text-tertiary-container tracking-wide">AI: connected</span><span class="hidden xl:inline font-label-sm text-label-sm text-secondary border-l border-outline-variant pl-space-xs ml-space-xs">gemini-1.5-flash / Claude 3.5 Sonnet</span></div><div class="flex items-center bg-surface-container-low rounded-lg px-space-sm py-space-xs border border-outline-variant"><span class="font-label-sm text-label-sm text-secondary mr-space-xs">Role:</span><select class="bg-transparent font-label-md text-label-md text-on-surface focus:outline-none cursor-pointer pr-space-xs"><option selected="" value="author">Author</option><option value="reviewer">Reviewer</option><option value="hod">HOD</option></select></div><div class="inline-flex items-center gap-space-xs px-space-sm py-space-xs rounded-full bg-secondary-container text-on-secondary-fixed-variant"><span class="w-2 h-2 rounded-full bg-primary"></span><span class="font-label-sm text-label-sm font-semibold tracking-wide">Draft In Progress</span></div><button aria-label="Notifications" class="text-secondary hover:text-on-surface transition-colors p-space-xs relative" type="button"><span class="material-symbols-outlined text-[20px]">notifications</span><span class="absolute top-1 right-1 w-2 h-2 bg-error rounded-full"></span></button><div class="flex items-center gap-space-sm pl-space-md border-l border-outline-variant"><img alt="Profile" class="w-8 h-8 rounded-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA1Q4Iw2FBzUGWbLgtUEVg-AvjgZnB3MqQFtRiJewX28KuLmOk_7seeGxF5gb8Lk0xhQj6sDjA_tBsfMgaFLzvCQMvQZ2NLfZRpBOvG_MPSnVXWy6_mLqkzLr6YKP77DpA1jqSL8dQHGAasmyG1_GBuUOtl1dmNluLH5CdtAcXV6_Zf7k40XNhFbXX69ODacyTT6EPUcp9g0ycQJ-o7kPXEnRt0-3K1-uyA3jtziYw"/><div class="hidden md:flex flex-col text-left"><span class="font-label-md text-label-md text-on-surface leading-tight font-medium">Dr. Robert Vance, PhD</span><span class="font-label-sm text-label-sm text-secondary leading-tight">Computer Science &amp; Eng</span></div></div></div></div></header><aside class="fixed left-0 top-16 bottom-0 w-[250px] bg-surface-container-lowest border-r border-outline-variant z-40 flex flex-col justify-between overflow-y-auto"><div class="flex flex-col"><div class="p-space-md border-b border-outline-variant bg-surface-container-low"><div class="font-label-sm text-label-sm text-secondary uppercase tracking-wider font-semibold">Active Course</div><div class="font-label-md text-label-md text-primary font-semibold truncate mt-space-xs" title="CS402: Distributed Systems">CS402: Distributed Systems</div><div class="font-label-sm text-label-sm text-on-surface-variant">2024-25 Autumn Semester</div></div><nav class="flex flex-col py-space-sm" data-active-classes="bg-surface-container text-primary-container font-semibold border-l-4 border-primary-container pl-[20px]"><a class="flex items-center gap-space-md px-space-lg py-space-sm text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-colors" data-path="upload" href="#"><span class="material-symbols-outlined text-[18px]">cloud_upload</span><span class="font-label-md text-label-md">1. Upload</span></a><a class="flex items-center gap-space-md px-space-lg py-space-sm text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-colors" data-path="spec" href="#"><span class="material-symbols-outlined text-[18px]">edit_document</span><span class="font-label-md text-label-md">2. Spec</span></a><a class="flex items-center gap-space-md px-space-lg py-space-sm text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-colors" data-path="matrix" href="#"><span class="material-symbols-outlined text-[18px]">grid_view</span><span class="font-label-md text-label-md">3. CO-PO-PSO Map</span></a><a aria-current="page" class="flex items-center gap-space-md px-space-lg py-space-sm transition-colors bg-surface-container text-primary-container font-semibold border-l-4 border-primary-container pl-[20px]" data-path="checks" href="#"><span class="material-symbols-outlined text-[18px]">fact_check</span><span class="font-label-md text-label-md">4. Checks</span></a><a class="flex items-center gap-space-md px-space-lg py-space-sm text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-colors" data-path="workflow" href="#"><span class="material-symbols-outlined text-[18px]">schema</span><span class="font-label-md text-label-md">5. Workflow</span></a><a class="flex items-center gap-space-md px-space-lg py-space-sm text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-colors" data-path="export" href="#"><span class="material-symbols-outlined text-[18px]">picture_as_pdf</span><span class="font-label-md text-label-md">6. Export</span></a></nav></div><div class="p-space-md border-t border-outline-variant flex flex-col gap-space-xs"><a class="flex items-center gap-space-sm py-space-xs text-on-surface-variant hover:text-on-surface transition-colors font-label-md text-label-md" data-path="ai-settings" href="#"><span class="material-symbols-outlined text-[16px]">tune</span><span>AI Settings</span></a><a class="flex items-center gap-space-sm py-space-xs text-on-surface-variant hover:text-on-surface transition-colors font-label-md text-label-md" data-path="compliance-guidelines" href="#"><span class="material-symbols-outlined text-[16px]">menu_book</span><span>Compliance Guidelines</span></a><a class="flex items-center gap-space-sm py-space-xs text-on-surface-variant hover:text-on-surface transition-colors font-label-md text-label-md" data-path="system-settings" href="#"><span class="material-symbols-outlined text-[16px]">settings</span><span>System Settings</span></a></div></aside><div class="pl-[250px]"><main class="pt-16 min-h-screen bg-surface-container-low p-margin"><div class="flex flex-col w-full gap-space-lg">
+<div class="flex flex-col lg:flex-row lg:items-center justify-between gap-space-md bg-surface-container-lowest p-space-lg rounded-xl shadow-sm">
+<div class="flex flex-col">
+<div class="flex items-center gap-space-xs font-label-sm text-label-sm text-secondary uppercase tracking-wider mb-space-xs">
+<span class="material-symbols-outlined text-[16px] text-primary-container">fact_check</span>
+<span>Validation Engine v3.4 • NBA / ABET OBE Rulebook</span>
+</div>
+<h1 class="font-headline-lg text-headline-lg text-primary tracking-tight">Compliance Checks &amp; Defects</h1>
+<p class="font-body-md text-body-md text-on-surface-variant mt-0.5">Automated diagnostic verification across Blooms taxonomy, credit distribution, and matrix mappings.</p>
+</div>
+<div class="flex items-center gap-space-sm self-start lg:self-center">
+<button class="flex items-center gap-space-xs px-space-md py-2 rounded-lg bg-surface-container hover:bg-surface-container-high text-primary font-label-md text-label-md transition-all shadow-sm" id="reRunDiagnosticsBtn">
+<span class="material-symbols-outlined text-[18px]">sync</span>
+<span>Re-run Rulebook</span>
+</button>
+<button class="flex items-center gap-space-xs px-space-md py-2 rounded-lg bg-primary-container hover:bg-primary text-on-primary font-label-md text-label-md transition-all shadow-sm" id="acceptAllHighBtn">
+<span class="material-symbols-outlined text-[18px]">auto_fix_high</span>
+<span>Accept 4 AI Suggested Fixes</span>
+</button>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-space-md">
+<div class="bg-error-container/40 p-space-lg rounded-xl shadow-sm flex flex-col justify-between relative overflow-hidden group">
+<div class="absolute -right-3 -bottom-3 text-error/10 pointer-events-none transition-transform group-hover:scale-110">
+<span class="material-symbols-outlined text-[88px]">error</span>
+</div>
+<div class="flex items-start justify-between">
+<div class="flex items-center gap-space-xs text-error font-label-lg text-label-lg font-semibold">
+<span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 1;">error</span>
+<span>Errors</span>
+</div>
+<span class="px-2.5 py-0.5 rounded-full text-xs font-semibold bg-error text-on-error uppercase tracking-wider font-label-sm">Export Blocker</span>
+</div>
+<div class="mt-space-md">
+<div class="flex items-baseline gap-space-xs">
+<span class="font-display-lg text-display-lg text-error font-bold leading-none tracking-tight">3</span>
+<span class="font-headline-sm text-headline-sm text-error/80 font-medium">High Severity</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1.5 font-medium">Blocking final accreditation report and syllabus certification export.</p>
+</div>
+</div>
+<div class="bg-secondary-container/40 p-space-lg rounded-xl shadow-sm flex flex-col justify-between relative overflow-hidden group">
+<div class="absolute -right-3 -bottom-3 text-secondary/10 pointer-events-none transition-transform group-hover:scale-110">
+<span class="material-symbols-outlined text-[88px]">warning</span>
+</div>
+<div class="flex items-start justify-between">
+<div class="flex items-center gap-space-xs text-secondary-fixed-dim/90 text-primary-container font-label-lg text-label-lg font-semibold">
+<span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 1;">warning</span>
+<span>Warnings</span>
+</div>
+<span class="px-2.5 py-0.5 rounded-full text-xs font-semibold bg-primary-container text-on-primary uppercase tracking-wider font-label-sm">Needs Sign-off</span>
+</div>
+<div class="mt-space-md">
+<div class="flex items-baseline gap-space-xs">
+<span class="font-display-lg text-display-lg text-primary font-bold leading-none tracking-tight">2</span>
+<span class="font-headline-sm text-headline-sm text-primary/80 font-medium">Medium Severity</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1.5 font-medium">Requires departmental justification or faculty author override before HOD submission.</p>
+</div>
+</div>
+<div class="bg-tertiary-fixed/30 p-space-lg rounded-xl shadow-sm flex flex-col justify-between relative overflow-hidden group">
+<div class="absolute -right-3 -bottom-3 text-tertiary-container/10 pointer-events-none transition-transform group-hover:scale-110">
+<span class="material-symbols-outlined text-[88px]">check_circle</span>
+</div>
+<div class="flex items-start justify-between">
+<div class="flex items-center gap-space-xs text-tertiary-container font-label-lg text-label-lg font-semibold">
+<span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+<span>Passed Rules</span>
+</div>
+<span class="px-2.5 py-0.5 rounded-full text-xs font-semibold bg-tertiary-container text-on-tertiary uppercase tracking-wider font-label-sm">Compliant</span>
+</div>
+<div class="mt-space-md">
+<div class="flex items-baseline gap-space-xs">
+<span class="font-display-lg text-display-lg text-tertiary-container font-bold leading-none tracking-tight">18</span>
+<span class="font-headline-sm text-headline-sm text-tertiary-container/80 font-medium">Checks Passed</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1.5 font-medium">100% compliant with OBE framework structure and modular teaching schemes.</p>
+</div>
+</div>
+</div>
+<div class="bg-surface-container-lowest p-space-md rounded-xl shadow-sm flex flex-col lg:flex-row items-stretch lg:items-center justify-between gap-space-md">
+<div class="flex-1 relative">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-outline text-[18px]">search</span>
+<input class="w-full pl-10 pr-4 py-2 rounded-lg bg-surface-container-low text-on-surface font-body-md text-body-md focus:bg-surface-container-lowest focus:ring-2 focus:ring-primary-container outline-none transition-all placeholder:text-outline" id="defectSearchInput" placeholder="Search defect code, section, or keyword..." type="text"/>
+</div>
+<div class="flex flex-wrap items-center gap-space-sm">
+<div class="flex items-center bg-surface-container-low rounded-lg px-space-sm py-1.5">
+<span class="font-label-sm text-label-sm text-secondary mr-space-xs">Severity:</span>
+<select class="bg-transparent font-label-md text-label-md text-on-surface focus:outline-none cursor-pointer pr-space-xs" id="severityFilter">
+<option value="all">All Severities</option>
+<option value="high">High Only (3)</option>
+<option value="medium">Medium Only (2)</option>
+</select>
+</div>
+<div class="flex items-center bg-surface-container-low rounded-lg px-space-sm py-1.5">
+<span class="font-label-sm text-label-sm text-secondary mr-space-xs">Section:</span>
+<select class="bg-transparent font-label-md text-label-md text-on-surface focus:outline-none cursor-pointer pr-space-xs" id="sectionFilter">
+<option value="all">All Sections</option>
+<option value="co">Course Outcomes</option>
+<option value="blueprint">Blueprint Alignment</option>
+<option value="matrix">Matrix &amp; PO Mapping</option>
+<option value="catalog">Prerequisites &amp; Catalog</option>
+</select>
+</div>
+<label class="flex items-center gap-space-xs cursor-pointer select-none bg-surface-container-low px-space-sm py-1.5 rounded-lg hover:bg-surface-container transition-colors">
+<input checked="" class="accent-primary-container w-4 h-4 cursor-pointer rounded" id="aiToggle" type="checkbox"/>
+<span class="font-label-md text-label-md text-on-surface font-medium">Show AI Auto-fixes only</span>
+</label>
+</div>
+</div>
+<div class="flex flex-col gap-space-md" id="defectsList">
+<div class="defect-card bg-surface-container-lowest rounded-xl p-space-lg shadow-sm flex flex-col gap-space-md transition-all hover:shadow-md" data-has-ai="true" data-section="co" data-severity="high">
+<div class="flex flex-col sm:flex-row sm:items-center justify-between gap-space-xs">
+<div class="flex items-center gap-space-sm flex-wrap">
+<span class="px-space-sm py-0.5 rounded-full text-xs font-semibold bg-error-container text-on-error-container font-label-sm">High Severity</span>
+<span class="font-code-md text-code-md font-semibold text-primary px-space-xs py-0.5 bg-surface-container rounded">CO_ACTION_VERB_NON_MEASURABLE</span>
+</div>
+<div class="flex items-center gap-space-xs text-outline text-label-sm font-label-sm">
+<span class="material-symbols-outlined text-[16px]">pin_drop</span>
+<span>Source: Course Specification &gt; Section 3 (CO2)</span>
+</div>
+</div>
+<div class="bg-surface-container-low/70 p-space-md rounded-lg flex flex-col gap-1">
+<span class="font-label-sm text-label-sm text-secondary uppercase font-semibold">Identified Defect</span>
+<p class="font-body-md text-body-md text-on-surface">CO2 initially used forbidden passive verb <span class="line-through decoration-error text-error font-medium">"Understand"</span>, violating NBA Bloom criteria (Cognitive Domain verbs must be actionable and demonstrable in formal assessments).</p>
+</div>
+<div class="bg-tertiary-fixed/20 p-space-md rounded-lg flex flex-col sm:flex-row sm:items-center justify-between gap-space-md">
+<div class="flex items-start gap-space-sm">
+<span class="material-symbols-outlined text-[20px] text-tertiary-container mt-0.5">auto_awesome</span>
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-tertiary-container font-semibold uppercase tracking-wider">Automated AI Resolution Ready</span>
+<p class="font-body-md text-body-md text-on-surface font-medium mt-0.5">
+              Rephrased to measurable verb: <span class="text-tertiary-container font-semibold">"Analyze latency trade-offs and CAP boundaries in distributed consensus stores."</span> (Level K4 Bloom)
+            </p>
+</div>
+</div>
+<div class="flex items-center gap-space-xs shrink-0">
+<button class="manual-edit-btn px-space-sm py-1.5 rounded-lg bg-surface-container hover:bg-surface-container-high text-on-surface font-label-md text-label-md transition-colors">Manual Edit</button>
+<button class="accept-btn px-space-md py-1.5 rounded-lg bg-primary-container hover:bg-primary text-on-primary font-label-md text-label-md transition-colors shadow-sm flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px]">check</span>
+<span>Accept AI Revision</span>
+</button>
+</div>
+</div>
+</div>
+<div class="defect-card bg-surface-container-lowest rounded-xl p-space-lg shadow-sm flex flex-col gap-space-md transition-all hover:shadow-md" data-has-ai="true" data-section="blueprint" data-severity="high">
+<div class="flex flex-col sm:flex-row sm:items-center justify-between gap-space-xs">
+<div class="flex items-center gap-space-sm flex-wrap">
+<span class="px-space-sm py-0.5 rounded-full text-xs font-semibold bg-error-container text-on-error-container font-label-sm">High Severity</span>
+<span class="font-code-md text-code-md font-semibold text-primary px-space-xs py-0.5 bg-surface-container rounded">BLUEPRINT_WEIGHT_MISMATCH</span>
+</div>
+<div class="flex items-center gap-space-xs text-outline text-label-sm font-label-sm">
+<span class="material-symbols-outlined text-[16px]">pin_drop</span>
+<span>Source: Blueprint Exam Matrix &gt; Section 5</span>
+</div>
+</div>
+<div class="bg-surface-container-low/70 p-space-md rounded-lg flex flex-col gap-1">
+<span class="font-label-sm text-label-sm text-secondary uppercase font-semibold">Identified Defect</span>
+<p class="font-body-md text-body-md text-on-surface">Sum of Question Paper Marks (<span class="text-error font-medium">95 marks</span>) does not equal syllabus total scheme requirement (<span class="font-semibold text-primary">100 marks</span>). Missing 5 marks in Section B Part 2.</p>
+</div>
+<div class="bg-tertiary-fixed/20 p-space-md rounded-lg flex flex-col sm:flex-row sm:items-center justify-between gap-space-md">
+<div class="flex items-start gap-space-sm">
+<span class="material-symbols-outlined text-[20px] text-tertiary-container mt-0.5">auto_awesome</span>
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-tertiary-container font-semibold uppercase tracking-wider">Automated AI Resolution Ready</span>
+<p class="font-body-md text-body-md text-on-surface font-medium mt-0.5">
+              Normalized question 4b from 10 marks to <span class="text-tertiary-container font-semibold">15 marks</span> based on 3-hour examination weight matrix.
+            </p>
+</div>
+</div>
+<div class="flex items-center gap-space-xs shrink-0">
+<button class="manual-edit-btn px-space-sm py-1.5 rounded-lg bg-surface-container hover:bg-surface-container-high text-on-surface font-label-md text-label-md transition-colors">Manual Edit</button>
+<button class="accept-btn px-space-md py-1.5 rounded-lg bg-primary-container hover:bg-primary text-on-primary font-label-md text-label-md transition-colors shadow-sm flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px]">check</span>
+<span>Accept AI Revision</span>
+</button>
+</div>
+</div>
+</div>
+<div class="defect-card bg-surface-container-lowest rounded-xl p-space-lg shadow-sm flex flex-col gap-space-md transition-all hover:shadow-md" data-has-ai="true" data-section="matrix" data-severity="medium">
+<div class="flex flex-col sm:flex-row sm:items-center justify-between gap-space-xs">
+<div class="flex items-center gap-space-sm flex-wrap">
+<span class="px-space-sm py-0.5 rounded-full text-xs font-semibold bg-secondary-container text-on-secondary-fixed-variant font-label-sm">Medium Severity</span>
+<span class="font-code-md text-code-md font-semibold text-primary px-space-xs py-0.5 bg-surface-container rounded">PO_ORPHAN_UNMAPPED</span>
+</div>
+<div class="flex items-center gap-space-xs text-outline text-label-sm font-label-sm">
+<span class="material-symbols-outlined text-[16px]">pin_drop</span>
+<span>Source: Matrix &gt; PO7 (Environment and Sustainability)</span>
+</div>
+</div>
+<div class="bg-surface-container-low/70 p-space-md rounded-lg flex flex-col gap-1">
+<span class="font-label-sm text-label-sm text-secondary uppercase font-semibold">Identified Defect</span>
+<p class="font-body-md text-body-md text-on-surface">PO7 is mapped with correlation level 2, but syllabus lacks any dedicated module or assignment addressing sustainability, green hosting, or power constraints.</p>
+</div>
+<div class="bg-tertiary-fixed/20 p-space-md rounded-lg flex flex-col sm:flex-row sm:items-center justify-between gap-space-md">
+<div class="flex items-start gap-space-sm">
+<span class="material-symbols-outlined text-[20px] text-tertiary-container mt-0.5">auto_awesome</span>
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-tertiary-container font-semibold uppercase tracking-wider">Automated AI Resolution Ready</span>
+<p class="font-body-md text-body-md text-on-surface font-medium mt-0.5">
+              Inserted <span class="text-tertiary-container font-semibold">2 lecture hours</span> on "Energy-efficient Data Center Cooling &amp; Carbon-aware Computing" in Unit 5 syllabus outline.
+            </p>
+</div>
+</div>
+<div class="flex items-center gap-space-xs shrink-0">
+<button class="manual-edit-btn px-space-sm py-1.5 rounded-lg bg-surface-container hover:bg-surface-container-high text-on-surface font-label-md text-label-md transition-colors">Manual Edit</button>
+<button class="accept-btn px-space-md py-1.5 rounded-lg bg-primary-container hover:bg-primary text-on-primary font-label-md text-label-md transition-colors shadow-sm flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px]">check</span>
+<span>Accept AI Revision</span>
+</button>
+</div>
+</div>
+</div>
+<div class="defect-card bg-surface-container-lowest rounded-xl p-space-lg shadow-sm flex flex-col gap-space-md transition-all hover:shadow-md" data-has-ai="true" data-section="catalog" data-severity="medium">
+<div class="flex flex-col sm:flex-row sm:items-center justify-between gap-space-xs">
+<div class="flex items-center gap-space-sm flex-wrap">
+<span class="px-space-sm py-0.5 rounded-full text-xs font-semibold bg-secondary-container text-on-secondary-fixed-variant font-label-sm">Medium Severity</span>
+<span class="font-code-md text-code-md font-semibold text-primary px-space-xs py-0.5 bg-surface-container rounded">PREREQUISITE_OBSOLETE_CATALOG</span>
+</div>
+<div class="flex items-center gap-space-xs text-outline text-label-sm font-label-sm">
+<span class="material-symbols-outlined text-[16px]">pin_drop</span>
+<span>Source: Course Information &gt; Academic Prerequisites</span>
+</div>
+</div>
+<div class="bg-surface-container-low/70 p-space-md rounded-lg flex flex-col gap-1">
+<span class="font-label-sm text-label-sm text-secondary uppercase font-semibold">Identified Defect</span>
+<p class="font-body-md text-body-md text-on-surface">Listed prerequisite course code <span class="line-through text-outline font-medium">CS204 (Operating Systems I)</span> was phased out in 2023 catalog; replaced by <span class="font-semibold text-primary">CS214 (Principles of Modern Operating Systems)</span>.</p>
+</div>
+<div class="bg-tertiary-fixed/20 p-space-md rounded-lg flex flex-col sm:flex-row sm:items-center justify-between gap-space-md">
+<div class="flex items-start gap-space-sm">
+<span class="material-symbols-outlined text-[20px] text-tertiary-container mt-0.5">auto_awesome</span>
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-tertiary-container font-semibold uppercase tracking-wider">Automated AI Resolution Ready</span>
+<p class="font-body-md text-body-md text-on-surface font-medium mt-0.5">
+              Updated course registry dependency to active course <span class="text-tertiary-container font-semibold">"CS214: Principles of Modern Operating Systems" (min grade C)</span>.
+            </p>
+</div>
+</div>
+<div class="flex items-center gap-space-xs shrink-0">
+<button class="manual-edit-btn px-space-sm py-1.5 rounded-lg bg-surface-container hover:bg-surface-container-high text-on-surface font-label-md text-label-md transition-colors">Manual Edit</button>
+<button class="accept-btn px-space-md py-1.5 rounded-lg bg-primary-container hover:bg-primary text-on-primary font-label-md text-label-md transition-colors shadow-sm flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px]">check</span>
+<span>Accept AI Revision</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+<div class="bg-surface-container-lowest rounded-xl shadow-sm overflow-hidden transition-all">
+<button class="w-full p-space-lg flex items-center justify-between hover:bg-surface-container-low transition-colors text-left" id="accordionToggleBtn">
+<div class="flex items-center gap-space-sm">
+<div class="w-8 h-8 rounded-full bg-tertiary-fixed flex items-center justify-center text-tertiary-container">
+<span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 1;">check</span>
+</div>
+<div class="flex flex-col">
+<div class="flex items-center gap-space-xs">
+<span class="font-headline-sm text-headline-sm text-primary">Passed Checks</span>
+<span class="px-2 py-0.5 rounded-full text-xs font-semibold bg-tertiary-fixed/60 text-tertiary-container font-label-sm">18 Verification Rules Met</span>
+</div>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Validated against Washington Accord guidelines and statutory curriculum frameworks</span>
+</div>
+</div>
+<div class="flex items-center gap-space-xs text-outline">
+<span class="material-symbols-outlined transition-transform duration-200" id="accordionChevron">expand_more</span>
+</div>
+</button>
+<div class="hidden px-space-lg pb-space-lg" id="passedChecksPanel">
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-space-md pt-space-xs">
+<div class="p-space-md rounded-lg bg-surface-container-low flex items-start gap-space-sm">
+<span class="material-symbols-outlined text-tertiary-container text-[18px] mt-0.5">check_circle</span>
+<div class="flex flex-col">
+<span class="font-label-md text-label-md text-primary font-semibold">Credit-to-Hour Ratio</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Verified 1:1 match across 42 contact hours and 3 credit schema.</span>
+</div>
+</div>
+<div class="p-space-md rounded-lg bg-surface-container-low flex items-start gap-space-sm">
+<span class="material-symbols-outlined text-tertiary-container text-[18px] mt-0.5">check_circle</span>
+<div class="flex flex-col">
+<span class="font-label-md text-label-md text-primary font-semibold">Outcome Coverage</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Assessment rubric matrix tests all 6 specified Course Outcomes (CO1-CO6).</span>
+</div>
+</div>
+<div class="p-space-md rounded-lg bg-surface-container-low flex items-start gap-space-sm">
+<span class="material-symbols-outlined text-tertiary-container text-[18px] mt-0.5">check_circle</span>
+<div class="flex flex-col">
+<span class="font-label-md text-label-md text-primary font-semibold">Bloom Cognitive Spread</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Cognitive complexity appropriately distributed across K3 through K6.</span>
+</div>
+</div>
+<div class="p-space-md rounded-lg bg-surface-container-low flex items-start gap-space-sm">
+<span class="material-symbols-outlined text-tertiary-container text-[18px] mt-0.5">check_circle</span>
+<div class="flex flex-col">
+<span class="font-label-md text-label-md text-primary font-semibold">Lab-Lecture Parity</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">2-hour hands-on practical assigned for each foundational consensus algorithm.</span>
+</div>
+</div>
+<div class="p-space-md rounded-lg bg-surface-container-low flex items-start gap-space-sm">
+<span class="material-symbols-outlined text-tertiary-container text-[18px] mt-0.5">check_circle</span>
+<div class="flex flex-col">
+<span class="font-label-md text-label-md text-primary font-semibold">Textbook Recency</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Core reference literature includes editions released within the last 5 years.</span>
+</div>
+</div>
+<div class="p-space-md rounded-lg bg-surface-container-low flex items-start gap-space-sm">
+<span class="material-symbols-outlined text-tertiary-container text-[18px] mt-0.5">check_circle</span>
+<div class="flex flex-col">
+<span class="font-label-md text-label-md text-primary font-semibold">Continuous Evaluation Split</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Internal marks (40%) and End-Sem evaluation (60%) conform to University code.</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="fixed bottom-6 right-6 bg-primary text-on-primary px-space-lg py-space-md rounded-xl shadow-xl flex items-center gap-space-sm transform translate-y-24 opacity-0 pointer-events-none transition-all duration-300 z-50" id="toastNotification">
+<span class="material-symbols-outlined text-tertiary-fixed text-[20px]">task_alt</span>
+<span class="font-label-lg text-label-lg font-medium" id="toastMessage">Auto-fix applied successfully</span>
+</div>
+</div>
+<script>
+  (function() {
+    const accordionBtn = document.getElementById('accordionToggleBtn');
+    const accordionPanel = document.getElementById('passedChecksPanel');
+    const accordionChevron = document.getElementById('accordionChevron');
+    const toast = document.getElementById('toastNotification');
+    const toastMsg = document.getElementById('toastMessage');
+
+    function showToast(message) {
+      if (!toast || !toastMsg) return;
+      toastMsg.textContent = message;
+      toast.classList.remove('translate-y-24', 'opacity-0', 'pointer-events-none');
+      setTimeout(() => {
+        toast.classList.add('translate-y-24', 'opacity-0', 'pointer-events-none');
+      }, 3500);
+    }
+
+    if (accordionBtn && accordionPanel && accordionChevron) {
+      accordionBtn.addEventListener('click', () => {
+        const isHidden = accordionPanel.classList.contains('hidden');
+        if (isHidden) {
+          accordionPanel.classList.remove('hidden');
+          accordionChevron.style.transform = 'rotate(180deg)';
+        } else {
+          accordionPanel.classList.add('hidden');
+          accordionChevron.style.transform = 'rotate(0deg)';
+        }
+      });
+    }
+
+    const searchInput = document.getElementById('defectSearchInput');
+    const severityFilter = document.getElementById('severityFilter');
+    const sectionFilter = document.getElementById('sectionFilter');
+    const aiToggle = document.getElementById('aiToggle');
+    const defectCards = document.querySelectorAll('.defect-card');
+
+    function applyFilters() {
+      const query = (searchInput?.value || '').toLowerCase().trim();
+      const severity = severityFilter?.value || 'all';
+      const section = sectionFilter?.value || 'all';
+      const aiOnly = aiToggle?.checked || false;
+
+      defectCards.forEach(card => {
+        const cardSeverity = card.getAttribute('data-severity');
+        const cardSection = card.getAttribute('data-section');
+        const cardHasAi = card.getAttribute('data-has-ai') === 'true';
+        const cardText = card.textContent.toLowerCase();
+
+        const matchesQuery = !query || cardText.includes(query);
+        const matchesSeverity = severity === 'all' || cardSeverity === severity;
+        const matchesSection = section === 'all' || cardSection === section;
+        const matchesAi = !aiOnly || cardHasAi;
+
+        if (matchesQuery && matchesSeverity && matchesSection && matchesAi) {
+          card.classList.remove('hidden');
+        } else {
+          card.classList.add('hidden');
+        }
+      });
+    }
+
+    searchInput?.addEventListener('input', applyFilters);
+    severityFilter?.addEventListener('change', applyFilters);
+    sectionFilter?.addEventListener('change', applyFilters);
+    aiToggle?.addEventListener('change', applyFilters);
+
+    document.querySelectorAll('.accept-btn').forEach(btn => {
+      btn.addEventListener('click', function(e) {
+        const card = e.target.closest('.defect-card');
+        const codeSpan = card?.querySelector('.font-code-md');
+        const code = codeSpan ? codeSpan.textContent : 'Defect';
+        if (card) {
+          card.style.opacity = '0.5';
+          btn.disabled = true;
+          btn.innerHTML = '<span class="material-symbols-outlined text-[16px]">check_circle</span> Accepted';
+          btn.classList.remove('bg-primary-container', 'hover:bg-primary');
+          btn.classList.add('bg-tertiary-container', 'text-on-tertiary');
+          showToast(`Applied AI fix for ${code}`);
+        }
+      });
+    });
+
+    document.querySelectorAll('.manual-edit-btn').forEach(btn => {
+      btn.addEventListener('click', function(e) {
+        const card = e.target.closest('.defect-card');
+        const code = card?.querySelector('.font-code-md')?.textContent || 'Defect';
+        showToast(`Opening manual editor for ${code}...`);
+      });
+    });
+
+    const acceptAllBtn = document.getElementById('acceptAllHighBtn');
+    acceptAllBtn?.addEventListener('click', () => {
+      document.querySelectorAll('.accept-btn').forEach(btn => {
+        if (!btn.disabled) {
+          btn.click();
+        }
+      });
+      showToast('All 4 AI Auto-fixes approved & updated');
+    });
+
+    const reRunBtn = document.getElementById('reRunDiagnosticsBtn');
+    reRunBtn?.addEventListener('click', () => {
+      const icon = reRunBtn.querySelector('.material-symbols-outlined');
+      if (icon) icon.classList.add('animate-spin');
+      showToast('Re-evaluating course spec against OBE rulebook...');
+      setTimeout(() => {
+        if (icon) icon.classList.remove('animate-spin');
+        showToast('Rulebook check complete: 0 new defects discovered');
+      }, 1200);
+    });
+  })();
+</script></main></div></body></html>
